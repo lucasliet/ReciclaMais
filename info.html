@@ -40,6 +40,21 @@ img {
     height: 64px;
 }
 
+#legenda ul {
+    list-style:none;
+}
+
+#legenda ul li { 
+    display: flex;
+    max-width: 64px;
+}
+
+#legenda ul li img {
+    padding: 20px 20px;
+    color: #333;
+    text-decoration: none;
+}
+
 </style>
 <body>
     <header>
@@ -53,20 +68,22 @@ img {
 </header>
 <div id="corpo">
     <h1>Tipos de lixo</h1>
-    <div id="legenda">
-        <img src="images/recycle.png">
-        <p>Plástico</p>
-        <img src="images/recycle.png">
-        <p>Vidro</p>
-        <img src="images/recycle.png">
-        <p>Metal</p>
-        <img src="images/recycle.png">
-        <p>Papel</p>
-        <img src="images/bateria.png">
-        <p>Bateria</p>
-        <img src="images/eletronicos.png">
-        <p>Eletrônicos</p>
-    </div>
+    <nav id="legenda">
+        <ul>
+            <li><img src="images/recycle.png">
+            <p>Plástico</p>
+            <img src="images/recycle.png">
+            <p>Vidro</p>
+            <img src="images/bateria.png">
+            <p>Bateria</p>
+            <li><img src="images/recycle.png">
+            <p>Papel</p>
+            <img src="images/recycle.png">
+            <p>Metal</p>
+            <img src="images/eletronicos.png">
+            <p>Eletrônicos</p></li>
+        </ul>
+    </nav>
     <h1>Como Separar</h1>
 </body>
 </html>
