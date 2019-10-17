@@ -35,24 +35,20 @@ body {
     line-height: 28px;
 }
 
-img {
+.legenda {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
+
+.legenda > div {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.legenda > div > img {
     width: 64px;
     height: 64px;
-}
-
-#legenda ul {
-    list-style:none;
-}
-
-#legenda ul li { 
-    display: flex;
-    max-width: 64px;
-}
-
-#legenda ul li img {
-    padding: 20px 20px;
-    color: #333;
-    text-decoration: none;
 }
 
 </style>
@@ -68,22 +64,21 @@ img {
 </header>
 <div id="corpo">
     <h1>Tipos de lixo</h1>
-    <nav id="legenda">
-        <ul>
-            <li><img src="images/plastico.png">
-            <p>Plástico</p>
-            <img src="images/Vidro.png">
-            <p>Vidro</p>
-            <img src="images/bateria.png">
-            <p>Bateria</p>
-            <li><img src="images/papel.png">
-            <p>Papel</p>
-            <img src="images/metal.png">
-            <p>Metal</p>
-            <img src="images/eletronicos.png">
-            <p>Eletrônicos</p></li>
-        </ul>
-    </nav>
+    <div class="legenda">
+            <div><img src="images/plastico.png">
+            <p>Plástico</p></div>
+            <div><img src="images/Vidro.png">
+            <p>Vidro</p></div>
+            <div><img src="images/bateria.png">
+            <p>Bateria</p></div>
+            <div><img src="images/papel.png">
+            <p>Papel</p></div>
+            <div><img src="images/metal.png">
+            <p>Metal</p></div>
+            <div><img src="images/eletronicos.png">
+            <p>Eletrônicos</p></div>
+    </div>
     <h1>Como Separar</h1>
+    <!-- Colocar aqui o vídeo de como separar -->
 </body>
 </html>
