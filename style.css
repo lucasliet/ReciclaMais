@@ -1,0 +1,83 @@
+body {
+    background: #E5E9F2;
+    text-align: center;
+}
+
+#menu ul {
+    background-color: #49D888;
+    list-style: none;
+    border-radius: 18px;
+}
+
+/* Teste Gambiarra fodida pra logo com uma posição absolute em cima da outra, estão desconexas */
+.logo {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    color: #FFFFFF;
+    font-family: Cascadia Code, sans-serif;
+    font-size: 20px;
+}
+
+#menu ul li {
+    display: inline;
+}
+
+#menu ul li a {
+    padding: 20px 20px;
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+}
+
+#menu ul li a:hover {
+    background-color: #2C8B56;
+    color: #FFF;
+
+}
+
+.map {
+    position: absolute; 
+    top: 100px; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+}
+.map iframe {
+    display: block; 
+    width: 100%; 
+    height: 100%; 
+    border: none;
+}
+
+.sobrenos {
+    display: inline-block;
+    color: #8190A5;
+    font-family: Lato;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 28px;
+    max-width: 800px;
+}
+
+#corpo {
+    display: inline;
+    color: #8190A5;
+    font-family: Lato;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.legenda {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
+
+.legenda div {padding: 10px 0;}
+
+.legenda div img {
+    width: 64px;
+    height: 64px;
+}
