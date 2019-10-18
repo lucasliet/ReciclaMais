@@ -47,10 +47,27 @@
             color: #FFF;
 
         }
+
+        .map {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0; 
+        }
+        .map iframe {
+            display: block; 
+            width: 100%; 
+            height: 100%; 
+            border: none;
+        }
     </style>
 
 <body>
     <header>
+        <div class="map">
+            <iframe width="100%" height="576" src="https://maphub.net/embed/70891?button=0&panel=1" frameborder="0"></iframe>
+        </div>
         <nav id="menu">
             <ul>
                 <li class="logo">R+</li>
@@ -61,7 +78,6 @@
             </ul>
         </nav>
     </header>
-    <iframe width="100%" height="576" src="https://maphub.net/embed/70891?button=0&panel=1" frameborder="0"></iframe>
 </body>
 
 </html>
