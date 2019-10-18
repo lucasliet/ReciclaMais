@@ -3,12 +3,6 @@ body {
     text-align: center;
 }
 
-#menu ul {
-    background-color: #49D888;
-    list-style: none;
-    border-radius: 18px;
-}
-
 /* Teste Gambiarra fodida pra logo com posição absolute */
 .logo {
     position: absolute;
@@ -17,6 +11,12 @@ body {
     color: #FFFFFF;
     font-family: Cascadia Code, sans-serif;
     font-size: 20px;
+}
+
+#menu ul {
+    background-color: #49D888;
+    list-style: none;
+    border-radius: 18px;
 }
 
 #menu ul li {
