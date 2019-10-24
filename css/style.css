@@ -14,7 +14,6 @@ body {
     border: none;
     border-radius: 100%;
     color: #49D888;
-    text-decoration: none;
     font-family: Cascadia Code, sans-serif;
     font-size: 20px;
     cursor: pointer;
@@ -30,6 +29,7 @@ body {
     background-color: #49D888;
     list-style: none;
     border-radius: 18px;
+    line-height: normal;
 }
 
 #menu ul li {
@@ -46,7 +46,7 @@ body {
 #menu ul li a:hover {
     background-color: #2C8B56;
     color: #FFF;
-    transition: background-color 1s;
+    transition: background-color 0.5s;
 }
 
 .map {
