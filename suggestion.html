@@ -8,19 +8,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="style.css" />
+    <script type="text/JavaScript" src="index.js"></script>
 </head>
 
 <body>
     <header>
         <nav id="menu" style="margin-top: 16px; margin-left: 8px; margin-right: 8px;">
         <!--Conserta posição-->
-            <ul>
-                <a href="index.html"><button class="logo">R+</button></a>
-                <li><a href="index.html">Página Inicial</a></li>
-                <li><a href="info.html">Como Separar</a></li>
-                <li><a href="aboutus.html">Sobre Nós</a></li>
-                <li><a href="suggestion.html">Sugestões</a></li>
-            </ul>
+            <script>navbar()</script>
         </nav>
     </header>
     <section>
@@ -95,7 +90,7 @@
 
                 <div class="form-group row">
                     <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <button type="submit" class="btn btn-primary" onclick="suggest()">Enviar</button>
                     </div>
                     <div class="col-sm-10">
                         <button type="submit" class="btn btn-primary">Limpar</button>
