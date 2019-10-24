@@ -10,7 +10,7 @@ body {
     top: 27px;
     left: 27px;
     padding: 8px;
-    background-color:#fff;
+    background-color:#FFF;
     border: none;
     border-radius: 100%;
     color: #49D888;
@@ -70,7 +70,7 @@ body {
 
 #corpo {
     display: inline;
-    color: #8190A5;
+    color: rgb(91, 102, 117);
     font-size: 21px;
     font-weight: 400;
     line-height: 28px;
