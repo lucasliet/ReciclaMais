@@ -11,4 +11,17 @@ function navbar(){
 
 function suggest(){
     alert("botão funcionando")
+
+    /*
+    var aux = new Array;
+
+    var obj = new Object;
+
+    obj.nome = "Joao";
+    obj.Idade = 45;
+
+    aux.push(obj);
+
+    localStorage.setItem('dados',aux);
+    */
 }
