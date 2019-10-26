@@ -88,3 +88,8 @@ body {
     width: 64px;
     height: 64px;
 }
+
+
+    .col-sm-2 {
+        text-align: left !important;
+    }
