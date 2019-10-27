@@ -13,14 +13,16 @@
 
 <body>
     <header>
-        <nav id="menu" style="margin-top: 16px; margin-left: 8px; margin-right: 8px;">
-        <!--Conserta posição-->
-            <script>navbar()</script>
+        <nav id="menu">
+            <div class="bootstrapnavfix">
+                <!--Conserta posição-->
+                <script>navbar()</script>
+            </div>
         </nav>
     </header>
     <section>
         <form class="container">
-            <div style="margin: 30px; " class="col-10 ">
+            <div class="col-11 formulario">
                 <div class="form-group row">
                     <label for="inputNome" class="col-sm-2 col-form-label">Nome:</label>
                     <div class="col-sm-10">
@@ -46,63 +48,49 @@
                             placeholder="Comentários adicionais"></textarea>
                     </div>
                 </div>
-
                 <div class="form-group row">
-                    <label for="comentario" class="col-sm-2 col-form-label">Descarte disponível:</label>
+                    <label for="descarte" class="col-sm-2 col-form-label">Descarte disponível:</label>
                     <div class="col-sm-10">
-                            <div class="legenda">
-                                    <div class="form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="Plastico">
-                                        <label class="form-check-label" for="Plastico">
-                                            <img src="images/plastico.png"> Plástico
-                                        </label> 
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="Vidro" value="opcao2">
-                                        <label class="form-check-label" for="Vidro">
-                                            <img src="images/vidro.png"> Vidro
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="Bateria" value="opcao3">
-                                        <label class="form-check-label" for="Bateria">
-                                            <img src="images/bateria.png"> Bateria
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="Metal" value="opcao5">
-                                        <label class="form-check-label" for="Metal">
-                                            <img src="images/metal.png"> Metal
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="Papel" value="opcao4">
-                                        <label class="form-check-label" for="Papel">
-                                            <img src="images/papel.png"> Papel
-                                        </label>
-                                    </div>
-                                    
-                                    <div class="form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="Eletrônicos" value="opcao6">
-                                        <label class="form-check-label" for="Eletrônicos">
-                                            <img src="images/eletronicos.png"> Eletrônicos
-                                        </label>
-                                    </div>
+                        <div class="legenda">
+                            <div class="form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="plastico">
+                                <img src="images/plastico.png" class="ml-2">
+                                <label class="form-check-label ml-2" for="Plastico">Plástico</label>
                             </div>
-
-                    </div>
-                </div>
-                <div class="form-group row justify-content-center">
-                        <div class="col-md-12">
-                            <span class="mx-auto">
-                                <button type="submit" class="btn btn-primary ml-4" onclick="suggest()">Enviar</button>
-                                <button type="submit" class="btn btn-primary">Limpar</button>
-                            </span>
+                            <div class="form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="vidro" value="opcao2">
+                                <img src="images/vidro.png" class="ml-2">
+                                <label class="form-check-label ml-2" for="Vidro">Vidro</label>
+                            </div>
+                            <div class="form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="bateria" value="opcao3">
+                                <img src="images/bateria.png" class="ml-2">
+                                <label class="form-check-label ml-2" for="Bateria">Bateria</label>
+                            </div>
+                            <div class="form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="metal" value="opcao5">
+                                <img src="images/metal.png" class="ml-2">
+                                <label class="form-check-label ml-2" for="Metal">Metal</label>
+                            </div>
+                            <div class="form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="papel" value="opcao4">
+                                <img src="images/papel.png" class="ml-2">
+                                <label class="form-check-label ml-2" for="Papel">Papel</label>
+                            </div>
+                            <div class="form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="eletronicos" value="opcao6">
+                                <img src="images/eletronicos.png" class="ml-2">
+                                <label class="form-check-label ml-2" for="Eletrônicos">Eletrônicos</label>
+                            </div>
                         </div>
                     </div>
-
-
-
+                </div>
+            </div>
+            <div class="justify-content-center">
+                <span class="mx-auto">
+                    <button type="submit" class="btn btn-primary" onclick="suggest()">Enviar</button>
+                    <button type="submit" class="btn btn-primary ml-2">Limpar</button>
+                </span>
             </div>
         </form>
     </section>
