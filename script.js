@@ -15,7 +15,7 @@ function suggest() {
     obj.nomePessoa = document.getElementById("inputNome").value;
     obj.nomeLocal  = document.getElementById("inputLugar").value;
     obj.endereco   = document.getElementById("inputCEP").value;
-    obj.info       = document.getElementById("descricao").value;
+    obj.info       = document.getElementById("comentario").value;
 
     alert(obj.nomePessoa);
     
