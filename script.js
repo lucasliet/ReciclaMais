@@ -1,4 +1,4 @@
-function navbar(){
+function navbar() {
     document.write(`<ul>
     <a href="index.html"><button class="logo">R+</button></a>
     <li><a href="index.html">Página Inicial</a></li>
@@ -9,20 +9,15 @@ function navbar(){
     )
 }
 
-function suggest(){
-    alert("botão funcionando")
-
-    /*
-    var aux = new Array;
-
+function suggest() {
     var obj = new Object;
 
-    obj.nome = "Joao";
-    obj.Idade = 45;
+    obj.nomePessoa = document.getElementById("inputNome").value;
+    obj.nomeLocal  = document.getElementById("inputLugar").value;
+    obj.endereco   = document.getElementById("inputCEP").value;
+    obj.info       = document.getElementById("descricao").value;
 
-    aux.push(obj);
-
-    localStorage.setItem('dados',aux);
-    */
-   
+    alert(obj.nomePessoa);
+    
+    localStorage.setItem('dados',obj);
 }
