@@ -25,6 +25,13 @@ function suggest() {
     obj.endereco   = document.getElementById("inputCEP").value;
     obj.info       = document.getElementById("comentario").value;
 
+    obj.plastico      = document.getElementById("plastico").checked;
+    obj.vidro         = document.getElementById("vidro").checked;
+    obj.metal         = document.getElementById("metal").checked;
+    obj.papel         = document.getElementById("papel").checked;
+    obj.bateria       = document.getElementById("bateria").checked;
+    obj.eletronicos   = document.getElementById("eletronicos").checked;
+
     //manda o objeto pra arraylist
     lista.push(obj);
 
@@ -47,19 +54,46 @@ function lista(){
         lista.push(JSON.parse(localStorage.getItem('listaLocais')));
     }
 
-    var html = '<h1>Lista de Locais</h1> \n\n\n'; 
+    var html = '<h1>Lista de Locais</h1> <br><br><br>'; 
 
     for (var i = 0; i < lista.length; i++){
-        let nomePessoa = lista[i].nomePessoa;
-        let nomeLocal  = lista[i].nomeLocal;
-        let endereco   = lista[i].endereco;
-        let info       = lista[i].info;
+        let nomePessoa  = lista[i].nomePessoa;
+        let nomeLocal   = lista[i].nomeLocal;
+        let endereco    = lista[i].endereco;
+        let info        = lista[i].info;
+        let plastico    = lista[i].plastico;
+        let vidro       = lista[i].vidro;
+        let metal       = lista[i].metal;
+        let papel       = lista[i].papel;
+        let bateria     = lista[i].bateria;
+        let eletronicos = lista[i].eletronicos;
+        
+        html += 'Nome: ' + nomePessoa + '<br>'
+        html += 'Estabelecimento: ' + nomeLocal + '<br>'
+        html += 'Endereço: ' + endereco + '<br>'
+        html += 'Descrição: ' + info + '<br>'
+        html += 'Tipos de Lixo: <br>'
+        
+        if(plastico){
+            html+= 'Plástico ||'
+        }
+        if(vidro){
+            html+= 'Vidro ||'
+        }
+        if(metal){
+            html+= 'Metal ||'
+        }
+        if(papel){
+            html+= 'Papel ||'
+        }
+        if(bateria){
+            html+= 'Bateria ||'
+        }
+        if(eletronicos){
+            html+= 'Eletrônicos ||'
+        }
 
-        html +=    'Nome: ' + nomePessoa + '\n'
-        html +=    'Estabelecimento: ' + nomeLocal + '\n'
-        html +=    'Endereço: ' + endereco + '\n'
-        html +=    'Descrição: ' + info + '\n'
-        html +=    '+++++++++++++++++++++++++++++++++++++++\n';
+        html +=    '____________________________________<br>';
     }
 
     document.write(html);
