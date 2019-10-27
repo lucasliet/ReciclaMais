@@ -10,6 +10,12 @@ function navbar() {
 }
 
 function suggest() {
+    var lista = new Array;
+
+    if (localStorage.getItem('listaLocais') != null) {
+        lista.push(JSON.parse(localStorage.getItem('listaLocais')));
+    }
+
     var obj = new Object;
 
     obj.nomePessoa = document.getElementById("inputNome").value;
@@ -17,7 +23,11 @@ function suggest() {
     obj.endereco   = document.getElementById("inputCEP").value;
     obj.info       = document.getElementById("comentario").value;
 
-    alert(obj.nomePessoa);
-    
-    localStorage.setItem('dados',obj);
+    alert('Seu nome é: ' + obj.nomePessoa);
+
+    lista.push(obj);
+
+    localStorage.setItem('listaLocais', JSON.stringify(lista));
+
+    alert('Local armazenado com sucesso!');
 }
