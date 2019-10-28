@@ -76,7 +76,6 @@ body {
 }
 
 .corpo {
-    display: inline;
     color: rgb(91, 102, 117);
     font-size: 21px;
     font-weight: 400;
@@ -132,6 +131,10 @@ input[id^="spoiler"] ~ .spoiler {
     border: 1px solid #ccc;
     border-radius: 8px;
     transition: all .6s;
+}
+input[id^="spoiler"] ~ .spoiler img {
+    width: 16px;
+    height: 16px;
 }
 input[id^="spoiler"]:checked + label + .spoiler{
     height: auto;
