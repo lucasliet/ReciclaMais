@@ -14,19 +14,12 @@ function populaLista(){
     
     //checa se o cache ta vazio, caso não esteja puxa o cache pra arraylist
     if (localStorage.getItem("listaLocais") != null) {
-                   //converte a String do JSON no localStorage pra array
-        lista.push(JSON.parse(localStorage.getItem("listaLocais")));
-        
-        /* 
-        conserta bug de array duplicada no primeiro elemento
-        populando array nova com os elementos da anterior
-        var bug = lista[0]
-        for (var i = 1; i < bug.length; i++) {
-            lista.push(bug[i]);
-        }
-        //remove primeiro item da lista deletando a array anterior
-        lista.shift();
-        */
+        /* conserta bug de JSON.parse colocar uma array dentro do primeiro elemento
+           de outra array */
+        var bug = new Array;
+                 //converte a String do JSON no localStorage pra array
+        bug.push(JSON.parse(localStorage.getItem("listaLocais")));
+        lista = bug[0];
     }
         
     return lista;
