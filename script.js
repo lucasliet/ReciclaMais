@@ -11,13 +11,24 @@ function navbar() {
 
 function populaLista(){
     var lista = new Array;
-
+    
     //checa se o cache ta vazio, caso não esteja puxa o cache pra arraylist
     if (localStorage.getItem("listaLocais") != null) {
                    //converte a String do JSON no localStorage pra array
         lista.push(JSON.parse(localStorage.getItem("listaLocais")));
+        
+        /* 
+        conserta bug de array duplicada no primeiro elemento
+        populando array nova com os elementos da anterior
+        var bug = lista[0]
+        for (var i = 1; i < bug.length; i++) {
+            lista.push(bug[i]);
+        }
+        //remove primeiro item da lista deletando a array anterior
+        lista.shift();
+        */
     }
-
+        
     return lista;
 }
 
@@ -43,14 +54,12 @@ function suggest() {
 
     //manda o objeto pra arraylist
     lista.push(obj);
-
+    
     //manda a arraylist pro cache      //converte a array pra String pro JSON do localStorage
     localStorage.setItem("listaLocais", JSON.stringify(lista));
     
     //gera Lista no Log do navegador
-    for (var i = 0; i < lista.length; i++){
-        console.log(lista[i]);
-    }
+    console.log(lista);
     
     alert("Local armazenado com sucesso!");
 }
@@ -59,7 +68,7 @@ function suggest() {
 function listaHTML(){
     var lista = populaLista();
 
-    var html = "<h1>Lista de Locais</h1> <br><br><p>"; 
+    var html = "<h1>Lista de Locais</h1><br><p>"; 
     for (var i = 0; i < lista.length; i++){
         html += "Nome: "            + lista[i].nomePessoa + "<br>"
         html += "Estabelecimento: " + lista[i].nomeLocal  + "<br>"
@@ -68,25 +77,25 @@ function listaHTML(){
         html += "Tipos de Lixo: <br>"
         
         if(lista[i].plastico){
-            html+= "Plástico ||"
+            html+= "Plástico || "
         }
         if(lista[i].vidro){
-            html+= "Vidro ||"
+            html+= "Vidro || "
         }
         if(lista[i].metal){
-            html+= "Metal ||"
+            html+= "Metal || "
         }
         if(lista[i].papel){
-            html+= "Papel ||"
+            html+= "Papel || "
         }
         if(lista[i].bateria){
-            html+= "Bateria ||"
+            html+= "Bateria || "
         }
         if(lista[i].eletronicos){
-            html+= "Eletrônicos ||"
+            html+= "Eletrônicos || "
         }
 
-        html += "____________________________________</p><br>";
+        html += "<br>____________________________________</p><br>";
     }
 
     document.write(html);
