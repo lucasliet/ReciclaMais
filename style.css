@@ -120,6 +120,9 @@ input[id^="spoiler"] + label {
 input[id^="spoiler"]:checked + label {
     background: #015ed3;
 }
+input[id^="spoiler"]:hover + label {
+    background: #015ed3;
+}
 input[id^="spoiler"] ~ .spoiler {
     width: 90%;
     height: 0;

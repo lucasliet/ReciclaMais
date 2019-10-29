@@ -89,7 +89,8 @@ function removeItem(index, local){
 
 //função de teste pra gerar a lista num código html
 function listaHTML(){
-    var lista = populaLista();
+    var lista = new Array;
+    lista = populaLista();
 
     //cria String que vai ser passado pro código html
     var html = "<h1>Lista de Locais</h1>"; 
