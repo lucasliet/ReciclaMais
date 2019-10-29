@@ -126,8 +126,7 @@ input[id^="spoiler"] ~ .spoiler {
     overflow: hidden;
     opacity: 0;
     margin: 10px auto 0; 
-    text-align: left;
-    padding: 10px; 
+    text-align: left; 
     background: #eee;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -140,5 +139,4 @@ input[id^="spoiler"] ~ .spoiler img {
 input[id^="spoiler"]:checked + label + .spoiler{
     height: auto;
     opacity: 1;
-    padding: 10px;
 }   
