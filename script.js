@@ -20,10 +20,36 @@ function populaLista(){
         var bug = new Array;
                  //converte a String do JSON no localStorage pra array
         bug.push(JSON.parse(localStorage.getItem("listaLocais")));
+        /* atribui à lista a array que estava no JSON 
+            e foi atribuida ao primeiro elemento da variavel "bug" */
         lista = bug[0];
     }
         
     return lista;
+}
+
+                    //recebe parametros de posição e nome do local
+function removeItem(index, local){
+    var lista = new Array;
+    lista = populaLista();
+
+    if (confirm(`Deseja mesmo remover ${local}?`)){
+        //remove 1 item, a partir da posição fornecida
+        lista.splice(index,1);
+        
+        //manda a arraylist pro cache      //converte a array pra String pro JSON do localStorage
+        localStorage.setItem("listaLocais", JSON.stringify(lista));
+        
+        //gera Lista no Log do navegador
+        console.log(lista);
+        
+        alert("Local removido com sucesso");
+        
+        //atualiza a página pra gerar uma nova lista html
+        location.reload(true);
+    }else{
+        alert("O local não foi removido")
+    }
 }
 
 function suggest() {
@@ -66,33 +92,37 @@ function listaHTML(){
     var html = "<h1>Lista de Locais</h1><br>"; 
     //passa por cada objeto da array e coloca as variaveis nessa String
     for (var i = 0; i < lista.length; i++){
-        html += "<p>Nome: "            + lista[i].nomePessoa + "<br>"
-        html += "Estabelecimento: "    + lista[i].nomeLocal  + "<br>"
-        html += "Endereço: "           + lista[i].endereco   + "<br>"
-        html += "Descrição: "          + lista[i].info       + "<br>"
-        html += "Tipos de Lixo: <br>"
+        html += "<b>Nome: </b>"               + lista[i].nomePessoa + "<br>"
+        html += "<b>Estabelecimento: </b>"    + lista[i].nomeLocal  + "<br>"
+        html += "<b>Endereço: </b>"           + lista[i].endereco   + "<br>"
+        html += "<b>Tipos de Lixo: </b>"
         
         //checa se cada tipo de lixo foi marcado, se sim escreve ele na String
         if(lista[i].plastico){
-            html+= "<img src='images/plastico.png'> Plástico "
+            html+= `<img src="images/plastico.png"> Plástico || `
         }
         if(lista[i].vidro){
-            html+= "<img src='images/vidro.png'> Vidro "
+            html+= `<img src="images/vidro.png"> Vidro || `
         }
         if(lista[i].metal){
-            html+= "<img src='images/metal.png'> Metal "
+            html+= `<img src="images/metal.png"> Metal || `
         }
         if(lista[i].papel){
-            html+= "<img src='images/papel.png'> Papel "
+            html+= `<img src="images/papel.png"> Papel || `
         }
         if(lista[i].bateria){
-            html+= "<img src='images/bateria.png'> Bateria "
+            html+= `<img src="images/bateria.png"> Bateria || `
         }
         if(lista[i].eletronicos){
-            html+= "<img src='images/eletronicos.png'> Eletrônicos "
+            html+= `<img src="images/eletronicos.png"> Eletrônicos || `
         }
-        //html += "<br><br><button class='btn btn-primary ml-2'>Deletar Sugestão</button>"
-        html += "<br>____________________________________</p>";
+        
+        html += `<br><b>Descrição: </b>
+                            <p style="margin-left: 30px;">${lista[i].info}</p>`
+        
+        //constrói botão de deletar sugestão passando as váriaveis de posição no array e nome do local
+        html += `<br><button class="btn btn-primary ml-2" onclick="removeItem(${i},'${lista[i].nomeLocal}')">Recusar Sugestão</button>`
+        html += "<br>____________________________________<br>";
     }
     
     //escreve a String no html

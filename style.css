@@ -126,6 +126,7 @@ input[id^="spoiler"] ~ .spoiler {
     overflow: hidden;
     opacity: 0;
     margin: 10px auto 0; 
+    text-align: left;
     padding: 10px; 
     background: #eee;
     border: 1px solid #ccc;
