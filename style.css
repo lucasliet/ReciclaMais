@@ -81,7 +81,10 @@ body {
     column-count: 2;
 }
 
-.info iframe {border-radius: 18px;}
+.info iframe {
+    border-radius: 18px;
+    width: 100%;
+}
 
 .corpo {
     color: rgb(91, 102, 117);
