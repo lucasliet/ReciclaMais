@@ -62,6 +62,7 @@ body {
     right: 0; 
     bottom: 0; 
 }
+
 .map iframe {
     display: block; 
     width: 100%; 
@@ -74,6 +75,13 @@ body {
     max-width: 800px;
     margin-bottom: 40px;
 }
+
+.info {
+    display: inline-flexbox;
+    column-count: 2;
+}
+
+.info iframe {border-radius: 18px;}
 
 .corpo {
     color: rgb(91, 102, 117);
