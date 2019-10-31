@@ -95,18 +95,16 @@ function listaHTML() {
     if (lista.length != 0) {
 
         //cria String que vai ser passado pro código html
-        var html = `<br>
-                    <input type="checkbox" id="spoiler"/>
-                    <label for="spoiler">Lista de locais</label>
-                    <div class="corpo spoiler" style="padding: 40px;">`
-        html += "<h1>Lista de Locais</h1>";
+        html += "<h1>Lista de Sugestões</h1>";
 
         //passa por cada objeto da array e coloca as variaveis nessa String
         for (var i = 0; i < lista.length; i++) {
+            html += "<div class='lista'>"
             html += "<b>Nome: </b>"             + lista[i].nomePessoa + "<br>";
             html += "<b>Estabelecimento: </b>"  + lista[i].nomeLocal  + "<br>";
             html += "<b>Endereço: </b>"         + lista[i].endereco   + "<br>";
-            html += "<b>Tipos de Lixo: </b>";
+            html += `<b>Tipos de Lixo: </b>
+                     <p style="margin-left: 30px;">`;
 
             //checa se cada tipo de lixo foi marcado, se sim escreve ele na String
             if (lista[i].plastico) {
@@ -128,7 +126,7 @@ function listaHTML() {
                 html += `<img src="images/eletronicos.png"> Eletrônicos || `;
             }
 
-            html += `<br>
+            html += `</p>
                     <b>Descrição: </b>
                     <p style="margin-left: 30px;">${lista[i].info}</p>`;
 
@@ -143,5 +141,7 @@ function listaHTML() {
 
         //escreve a String no html
         document.write(html);
+    } else {
+        document.write('<h1> Não há nenhuma sugestão ainda :( </h1>')
     }
 }
