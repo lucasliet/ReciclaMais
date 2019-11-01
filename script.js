@@ -87,6 +87,7 @@ function removeItem(index, local) {
 function removeItens(){
     var lista = new Array;
     lista = populaLista();
+
     //passa por cada item da lista pra ver se algum foi marcado pra deletar
     for (var i = 0; i < lista.length; i++) {
         //checa se alguma caixa de seleção foi selecionada na lista
@@ -95,12 +96,18 @@ function removeItens(){
             if(confirm("Tem certeza que deseja deletar todos os locais selecionados?")){
                 //passa por cada item da lista novamente
                 for (var i = 0; i < lista.length; i++) {
+                    let adeletar = new Array;
+                    
                     //se o item da posição for o mesmo marcado pra deletar, executa
                     if(document.getElementById(`check${i}`).checked){
-                        console.log(lista)
-                        //deleta 1 item na posição marcada
-                        lista.splice(i, 1);
+                        //pega quais vão ser as opções que devem ser deletadas e coloca num array
+                        adeletar.push(i);
                     }
+                }
+                //passa por toda a lista adeletar
+                for (var i = 0; i < adeletar.length; i++) {
+                    //deleta 1 item com a posição que ta dentro do adeletar
+                    lista.splice(adeletar[i], 1);
                 }
                 //manda a arraylist pro cache      //converte a array pra String pro JSON do localStorage
                 localStorage.setItem("listaLocais", JSON.stringify(lista));
@@ -119,7 +126,7 @@ function removeItens(){
         }
     }
     //caso o for percorra toda a lista e nenhum item dela foi selecionado, exibe
-    alert('Algum local deve ser marcado para ser deletado')
+    alert('Algum local deve ser marcado para ser deletado');
 }
 
 //função de teste pra gerar a lista num código html
