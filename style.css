@@ -79,6 +79,8 @@ body {
 .info {
     display: grid;
     grid-template-columns: auto auto;
+    margin: auto;
+    width: 90%;
 }
 
 .info iframe {
