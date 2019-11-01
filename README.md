@@ -1,4 +1,4 @@
-# ReciclaMais
+# Recicla+
 Projeto de aplicativo web sobre localização de pontos de reciclagem
 ### Confira nossa página **online!** 
 
