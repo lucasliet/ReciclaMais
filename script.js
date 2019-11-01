@@ -87,43 +87,92 @@ function removeItem(index, local) {
     }
 }
 
+function removeItens(){
+    var lista = new Array;
+    lista = populaLista();
+    //passa por cada item da lista pra ver se algum foi marcado pra deletar
+    for (var i = 0; i < lista.length; i++) {
+        //checa se alguma caixa de seleção foi selecionada na lista
+        if(document.getElementById(`check${i}`).checked){
+            //Assim que chegar em alguma posição que foi selecionada, executa
+            if(confirm("Tem certeza que deseja deletar todos os locais selecionados?")){
+                //passa por cada item da lista novamente
+                for (var i = 0; i < lista.length; i++) {
+                    //se o item da posição for o mesmo marcado pra deletar, executa
+                    if(document.getElementById(`check${i}`).checked){
+                        console.log(lista)
+                        //deleta 1 item na posição marcada
+                        lista.splice(i, 1);
+                    }
+                }
+                //manda a arraylist pro cache      //converte a array pra String pro JSON do localStorage
+                localStorage.setItem("listaLocais", JSON.stringify(lista));
+
+                //gera Lista no Log do navegador
+                console.log(lista);
+
+                //return garante que a função vai ser parada invés de continuar o primeiro for em cada item
+                alert('Locais removidos com sucesso');
+                
+                //atualiza a página pra gerar uma nova lista html
+                location.reload(true);
+            } else {
+                return alert('Nenhum local foi removido!');
+            }
+        }
+    }
+    //caso o for percorra toda a lista e nenhum item dela foi selecionado, exibe
+    alert('Algum local deve ser marcado para ser deletado')
+}
+
 //função de teste pra gerar a lista num código html
 function listaHTML() {
     var lista = new Array;
     lista = populaLista();
-
+    
+    //checa se a lista não ta vazia
     if (lista.length != 0) {
-
         //cria String que vai ser passado pro código html
-        html += "<h1>Lista de Sugestões</h1>";
+        var html = "<h1>Lista de Sugestões</h1>";
+
+        //constroi botão de deletar várias sugestões
+        html += `<button class="btn btn-primary" style="margin:10px;"
+                    onclick="removeItens()">
+                        Recusar Sugestões Selecionadas
+                </button>`;
+
 
         //passa por cada objeto da array e coloca as variaveis nessa String
         for (var i = 0; i < lista.length; i++) {
             html += "<div class='lista'>"
+            html += "<div class='form-check-inline'>"
+                    //cria caixa de seleção para marcar local a deletar usando a posição para diferenciaro id
+            html += `<input type="checkbox" id="check${i}">`
+            html += '<div>'
             html += "<b>Nome: </b>"             + lista[i].nomePessoa + "<br>";
             html += "<b>Estabelecimento: </b>"  + lista[i].nomeLocal  + "<br>";
             html += "<b>Endereço: </b>"         + lista[i].endereco   + "<br>";
             html += `<b>Tipos de Lixo: </b>
-                     <p style="margin-left: 30px;">`;
+                     <p style="margin-left: 28px;">`;
 
             //checa se cada tipo de lixo foi marcado, se sim escreve ele na String
             if (lista[i].plastico) {
-                html += `<img src="images/plastico.png"> Plástico || `;
+                html += `<span class='descarte'><img src="images/plastico.png"> Plástico </span>`;
             }
             if (lista[i].vidro) {
-                html += `<img src="images/vidro.png"> Vidro || `;
+                html += `<span class='descarte'><img src="images/vidro.png"> Vidro </span>`;
             }
             if (lista[i].metal) {
-                html += `<img src="images/metal.png"> Metal || `;
+                html += `<span class='descarte'><img src="images/metal.png"> Metal </span>`;
             }
             if (lista[i].papel) {
-                html += `<img src="images/papel.png"> Papel || `;
+                html += `<span class='descarte'><img src="images/papel.png"> Papel </span>`;
             }
             if (lista[i].bateria) {
-                html += `<img src="images/bateria.png"> Bateria || `;
+                html += `<span class='descarte'><img src="images/bateria.png"> Bateria </span>`;
             }
             if (lista[i].eletronicos) {
-                html += `<img src="images/eletronicos.png"> Eletrônicos || `;
+                html += `<span class='descarte'><img src="images/eletronicos.png"> Eletrônicos </span>`;
             }
 
             html += `</p>
@@ -131,17 +180,18 @@ function listaHTML() {
                     <p style="margin-left: 30px;">${lista[i].info}</p>`;
 
             //constrói botão de deletar sugestão passando as váriaveis de posição no array e nome do local
-            html += `<button class="btn btn-primary ml-2" 
+            html += `<button class="btn btn-primary" 
                         onclick="removeItem(${i},'${lista[i].nomeLocal}')">
                             Recusar Sugestão
                      </button>`;
-            html += "<br>____________________________________<br>";
+            html += "</div>";
+            html += "</div>";
+            html += "</div>";
         }
-        html += "</div>"
-
+        
         //escreve a String no html
         document.write(html);
-    } else {
-        document.write('<h1> Não há nenhuma sugestão ainda :( </h1>')
+    } else { //se estiver vazia, exibe isso
+        document.write('<h1 style="margin-top:25%;"> Não há nenhuma sugestão ainda :( </h1>')
     }
 }
