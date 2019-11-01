@@ -77,13 +77,13 @@ body {
 }
 
 .info {
-    display: inline-flexbox;
-    column-count: 2;
+    display: grid;
+    grid-template-columns: auto auto;
 }
 
 .info iframe {
     border-radius: 18px;
-    width: 100%;
+    width: 90%;
 }
 
 .corpo {
