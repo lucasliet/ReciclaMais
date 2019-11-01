@@ -83,7 +83,7 @@ function removeItem(index, local) {
         alert("O local não foi removido");
     }
 }
-
+//////////////////// AINDA NÃO FUNCIONA ///////////////////
 function removeItens(){
     var lista = new Array;
     lista = populaLista();
@@ -129,7 +129,7 @@ function removeItens(){
     alert('Algum local deve ser marcado para ser deletado');
 }
 
-//função de teste pra gerar a lista num código html
+//gera o código html que vai ser usado para a lista
 function listaHTML() {
     var lista = new Array;
     lista = populaLista();
