@@ -111,12 +111,12 @@ function removeItens(){
                 //gera Lista no Log do navegador
                 console.log(lista);
 
-                //return garante que a função vai ser parada invés de continuar o primeiro for em cada item
                 alert('Locais removidos com sucesso');
                 
                 //atualiza a página pra gerar uma nova lista html
                 location.reload(true);
             } else {
+                //return garante que a função vai ser parada invés de continuar o primeiro for em cada item
                 return alert('Nenhum local foi removido!');
             }
         }
