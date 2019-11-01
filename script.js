@@ -192,6 +192,6 @@ function listaHTML() {
         //escreve a String no html
         document.write(html);
     } else { //se estiver vazia, exibe isso
-        document.write('<h1 style="margin-top:25%;"> Não há nenhuma sugestão ainda :( </h1>')
+        document.write('<h1 style="margin-top:15%;"> Não há nenhuma sugestão ainda :( </h1>')
     }
 }
