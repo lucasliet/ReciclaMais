@@ -58,9 +58,6 @@ function addItem() {
     console.log(lista);
 
     alert("Local armazenado com sucesso!");
-
-    //atualiza a página pra gerar uma nova lista html
-    location.reload(true);
 }
 
 //recebe parametros de posição e nome do local
