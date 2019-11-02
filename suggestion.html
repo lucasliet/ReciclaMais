@@ -17,76 +17,113 @@
         </nav>
     </header>
     <section>
-        <form class="container">
-            <div class="col-11 formulario">
-                <div class="form-group row">
-                    <label for="inputNome" class="col-sm-2 col-form-label">Nome:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputNome" placeholder="Ex: João da Silva">
+        <div class="corpo">
+            <h3>Não encontrou o local que queria?</h3>
+            <p> Envie sua sugestão!</p>
+        </div>
+        <form class="container shadow mb-3 p-3 bg-light rounded">
+            <div>
+                <div class="col-13 text-left">
+                    <div class="form-group row">
+                        <label for="inputNome" class="col-sm-2 col-form-label">Nome:</label>
+                        <div class="col-sm-10">
+                            <input type="text" 
+                                class="form-control" 
+                                id="inputNome" 
+                                placeholder="Ex: João da Silva" 
+                                required>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputLugar" class=" col-sm-2 col-form-label">Estabelecimento:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputLugar" placeholder="Ex: Boteco do Noriega">
+                    <div class="form-group row">
+                        <label for="inputLugar" class=" col-sm-2 col-form-label">Estabelecimento:</label>
+                        <div class="col-sm-10">
+                            <input type="text" 
+                                class="form-control" 
+                                id="inputLugar" 
+                                placeholder="Ex: Boteco do Noriega" 
+                                required>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputCEP" class=" col-sm-2 col-form-label">Endereço: </label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputCEP" placeholder="Ex: Rua dos bobos Nº0.">
+                    <div class="form-group row">
+                        <label for="inputEndereco" class=" col-sm-2 col-form-label">Endereço:</label>
+                        <div class="col-sm-6">
+                            <input type="text" 
+                                class="form-control" 
+                                id="inputEndereco" 
+                                placeholder="Ex: Rua dos bobos Nº0." 
+                                required>
+                        </div>
+                        <label for="inputNumero" class="col-form-label">Número:</label>
+                        <div class="col-sm-1">
+                            <input type="text" 
+                                class="form-control" 
+                                id="inputNumero" 
+                                placeholder="250" 
+                                required>
+                        </div>
+                        <label for="inputCEP" class="col-form-label">CEP:</label>
+                        <div class="col-sm-2">
+                            <input type="text" 
+                                class="form-control" 
+                                id="inputCEP" 
+                                placeholder="25004-190" 
+                                required>
+                        </div>
+
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="comentario" class="col-sm-2 col-form-label">Descrição:</label>
-                    <div class="col-sm-10">
-                        <textarea type="text" class="form-control" id="comentario"
-                            placeholder="Comentários adicionais"></textarea>
+                    <div class="form-group row">
+                        <label for="comentario" class="col-sm-2 col-form-label">Descrição:</label>
+                        <div class="col-sm-10">
+                            <textarea type="text" 
+                                    class="form-control" 
+                                    id="comentario"
+                                    placeholder="Comentários adicionais"></textarea>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="descarte" class="col-sm-2 col-form-label">Descarte disponível:</label>
-                    <div class="col-sm-10">
-                        <div class="legenda">
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="plastico">
-                                <img src="images/plastico.png" class="ml-2">
-                                <label class="form-check-label ml-2" for="Plastico">Plástico</label>
-                            </div>
-                            <div class="form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="papel" value="opcao4">
+                    <div class="form-group row">
+                        <label for="descarte" class="col-sm-2 col-form-label">Descarte disponível:</label>
+                        <div class="col-sm-10">
+                            <div class="legenda">
+                                <div class="form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="plastico">
+                                    <img src="images/plastico.png" class="ml-2">
+                                    <label class="form-check-label ml-2" for="Plastico">Plástico</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="papel">
                                     <img src="images/papel.png" class="ml-2">
                                     <label class="form-check-label ml-2" for="Papel">Papel</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="bateria" value="opcao3">
-                                <img src="images/bateria.png" class="ml-2">
-                                <label class="form-check-label ml-2" for="Bateria">Bateria</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="metal" value="opcao5">
-                                <img src="images/metal.png" class="ml-2">
-                                <label class="form-check-label ml-2" for="Metal">Metal</label>
-                            </div>
-                            <div class="form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="vidro" value="opcao2">
-                                    <img src="images/vidro.png" class="ml-2">
-                                    <label class="form-check-label ml-2" for="Vidro">Vidro</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="eletronicos" value="opcao6">
-                                <img src="images/eletronicos.png" class="ml-2">
-                                <label class="form-check-label ml-2" for="Eletrônicos">Eletrônicos</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="bateria">
+                                    <img src="images/bateria.png" class="ml-2">
+                                    <label class="form-check-label ml-2" for="Bateria">Bateria</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="metal">
+                                    <img src="images/metal.png" class="ml-2">
+                                    <label class="form-check-label ml-2" for="Metal">Metal</label>
+                                </div>
+                                <div class="form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="vidro">
+                                        <img src="images/vidro.png" class="ml-2">
+                                        <label class="form-check-label ml-2" for="Vidro">Vidro</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="eletronicos">
+                                    <img src="images/eletronicos.png" class="ml-2">
+                                    <label class="form-check-label ml-2" for="Eletrônicos">Eletrônicos</label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="justify-content-center">
-                <span class="mx-auto">
-                    <button type="submit" class="btn btn-primary" onclick="addItem()">Enviar</button>
-                    <button type="submit" class="btn btn-primary ml-2">Limpar</button>
-                </span>
+                <div class="justify-content-center">
+                    <span class="mx-auto">
+                        <button type="submit" class="btn btn-primary" onclick="addItem()">Enviar</button>
+                        <button type="reset" class="btn btn-primary ml-2">Limpar</button>
+                    </span>
+                </div>
             </div>
         </form>
     </section>

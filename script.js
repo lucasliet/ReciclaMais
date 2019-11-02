@@ -1,13 +1,14 @@
 //escreve o código da navbar no html
-document.getElementById('navbar').innerHTML = `
-    <ul>
-    <a href="index.html"><button class="logo">R+</button></a>
-    <li><a href="index.html">Página Inicial</a></li>
-    <li><a href="info.html">Como Separar</a></li>
-    <li><a href="aboutus.html">Sobre Nós</a></li>
-    <li><a href="suggestion.html">Sugestões</a></li>
-    </ul>
-`
+var menu = `
+            <ul>
+            <a href="index.html"><button class="logo">R+</button></a>
+            <li><a href="index.html">Página Inicial</a></li>
+            <li><a href="info.html">Como Separar</a></li>
+            <li><a href="aboutus.html">Sobre Nós</a></li>
+            <li><a href="suggestion.html">Sugestões</a></li>
+            </ul>
+            `    
+document.getElementById('navbar').innerHTML = menu;
 
 function populaLista() {
     var lista = new Array;
@@ -28,37 +29,57 @@ function populaLista() {
 }
 
 function addItem() {
-    var lista = new Array;
-    lista = populaLista();
+    //Checa se o usuário digitou todos os campos requeridos
+    if (document.getElementById("inputNome").value      &&
+        document.getElementById("inputLugar").value     &&
+        document.getElementById("inputEndereco").value  &&
+        document.getElementById("inputNumero").value    &&
+        document.getElementById("inputCEP").value){
+        //checa se o usuário marcou ao menos um tipo de descarte
+        if(document.getElementById("plastico").checked ||
+           document.getElementById("vidro").checked    ||
+           document.getElementById("metal").checked    ||
+           document.getElementById("papel").checked    ||
+           document.getElementById("bateria").checked  ||
+           document.getElementById("eletronicos").checked){
 
-    //puxa os elementos dos campos digitados na página pra um objeto
-    var obj = new Object;
-    obj = {
-        nomePessoa      : document.getElementById("inputNome").value,
-        nomeLocal       : document.getElementById("inputLugar").value,
-        endereco        : document.getElementById("inputCEP").value,
-        info            : document.getElementById("comentario").value,
-
-        plastico        : document.getElementById("plastico").checked,
-        vidro           : document.getElementById("vidro").checked,
-        metal           : document.getElementById("metal").checked,
-        papel           : document.getElementById("papel").checked,
-        bateria         : document.getElementById("bateria").checked,
-        eletronicos     : document.getElementById("eletronicos").checked,
+            var lista = new Array;
+            lista = populaLista();
+            
+            //puxa os elementos dos campos digitados na página pra um objeto
+            var obj = new Object;
+            obj = {
+                nomePessoa      : document.getElementById("inputNome").value,
+                nomeLocal       : document.getElementById("inputLugar").value,
+                endereco        : document.getElementById("inputEndereco").value,
+                numero          : document.getElementById("inputNumero").value,
+                cep             : document.getElementById("inputCEP").value,
+                info            : document.getElementById("comentario").value,
+                
+                plastico        : document.getElementById("plastico").checked,
+                vidro           : document.getElementById("vidro").checked,
+                metal           : document.getElementById("metal").checked,
+                papel           : document.getElementById("papel").checked,
+                bateria         : document.getElementById("bateria").checked,
+                eletronicos     : document.getElementById("eletronicos").checked,
+            }
+        
+            //manda o objeto pra arraylist
+            lista.push(obj);
+            
+            //manda a arraylist pro cache      //converte a array pra String pro JSON do localStorage
+            localStorage.setItem("listaLocais", JSON.stringify(lista));
+            
+            //gera Lista no Log do navegador
+            console.log(lista);
+            
+            alert("Local armazenado com sucesso!");
+        } else {
+            alert("Selecione ao menos um tipo de descarte");
+        }
     }
-
-    //manda o objeto pra arraylist
-    lista.push(obj);
-
-    //manda a arraylist pro cache      //converte a array pra String pro JSON do localStorage
-    localStorage.setItem("listaLocais", JSON.stringify(lista));
-
-    //gera Lista no Log do navegador
-    console.log(lista);
-
-    alert("Local armazenado com sucesso!");
 }
-
+        
 //recebe parametros de posição e nome do local
 function removeItem(index, local) {
     var lista = new Array;
@@ -77,7 +98,7 @@ function removeItem(index, local) {
         alert("Local removido com sucesso");
 
         //atualiza a página pra gerar uma nova lista html
-        location.reload(true);
+        mostraLista();
     } else {
         alert("O local não foi removido");
     }
@@ -117,7 +138,7 @@ function removeItens(){
                 alert('Locais removidos com sucesso');
                 
                 //atualiza a página pra gerar uma nova lista html
-                location.reload(true);
+                mostraLista();
             } else {
                 //return garante que a função vai ser parada invés de continuar o primeiro for em cada item
                 return alert('Nenhum local foi removido!');
@@ -155,6 +176,8 @@ function listaHTML() {
             html += "<b>Nome: </b>"             + lista[i].nomePessoa + "<br>";
             html += "<b>Estabelecimento: </b>"  + lista[i].nomeLocal  + "<br>";
             html += "<b>Endereço: </b>"         + lista[i].endereco   + "<br>";
+            html += "<b>Número: </b>"           + lista[i].numero   + "<br>";
+            html += "<b>CEP: </b>"              + lista[i].cep   + "<br>";
             html += `<b>Tipos de Lixo: </b>
                      <p style="margin-left: 28px;">`;
 
@@ -192,9 +215,26 @@ function listaHTML() {
             html += "</div>";
         }
         
-        //escreve a String no html
-        document.getElementById('lista').innerHTML = html;
+        //retorna a String com o código html da lista completa
+        return html;
     } else { //se estiver vazia, exibe isso
-        document.getElementById('lista').innerHTML = '<h1 style="margin-top:15%;"> Não há nenhuma sugestão ainda :( </h1>'
+        return '<h1 style="margin-top:15%;"> Não há nenhuma sugestão ainda :( </h1>'
     }
+}
+
+//sobrepõe o body da página com a lista de sugestões
+function mostraLista() {
+    document.body.innerHTML = `
+    <header>
+    <nav class="menu">
+        <div class="bootstrapnavfix">${menu}</div>
+    </nav>
+    </header>
+    <div class="corpo">${listaHTML()}</div>
+
+    <script type="text/JavaScript" src="script.js"></script>
+    <script src="bootstrap/jquery-3.3.1.slim.min.js"></script>
+    <script src="bootstrap/popper.min.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+    `
 }
