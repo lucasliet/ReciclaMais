@@ -25,25 +25,25 @@ body {
     transition: background-color 0.5s;
 }
 
-#menu ul {
+.menu ul {
     background-color: #49D888;
     list-style: none;
     border-radius: 18px;
     line-height: normal;
 }
 
-#menu ul li {
+.menu ul li {
     display: inline;
 }
 
-#menu ul li a {
+.menu ul li a {
     padding: 20px;
     display: inline-block;
     color: #333;
     text-decoration: none;
 }
 
-#menu ul li a:hover {
+.menu ul li a:hover {
     background-color: #2C8B56;
     color: #FFF;
     transition: background-color 0.5s;
