@@ -1,14 +1,13 @@
-function navbar() {
-    //escreve o código da navbar no html
-    document.write(`<ul>
-                    <a href="index.html"><button class="logo">R+</button></a>
-                    <li><a href="index.html">Página Inicial</a></li>
-                    <li><a href="info.html">Como Separar</a></li>
-                    <li><a href="aboutus.html">Sobre Nós</a></li>
-                    <li><a href="suggestion.html">Sugestões</a></li>
-                    </ul>`
-    )
-}
+//escreve o código da navbar no html
+document.getElementById('navbar').innerHTML = `
+    <ul>
+    <a href="index.html"><button class="logo">R+</button></a>
+    <li><a href="index.html">Página Inicial</a></li>
+    <li><a href="info.html">Como Separar</a></li>
+    <li><a href="aboutus.html">Sobre Nós</a></li>
+    <li><a href="suggestion.html">Sugestões</a></li>
+    </ul>
+`
 
 function populaLista() {
     var lista = new Array;
@@ -194,8 +193,8 @@ function listaHTML() {
         }
         
         //escreve a String no html
-        document.write(html);
+        document.getElementById('lista').innerHTML = html;
     } else { //se estiver vazia, exibe isso
-        document.write('<h1 style="margin-top:15%;"> Não há nenhuma sugestão ainda :( </h1>')
+        document.getElementById('lista').innerHTML = '<h1 style="margin-top:15%;"> Não há nenhuma sugestão ainda :( </h1>'
     }
 }
