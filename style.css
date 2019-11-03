@@ -88,6 +88,16 @@ body {
     width: 90%;
 }
 
+.col iframe {
+    border-radius: 18px;
+    width: 100%;
+}
+
+.col img {
+    width: 64px;
+    height: 64px;
+}
+
 .corpo {
     color: rgb(91, 102, 117);
     font-size: 21px;
