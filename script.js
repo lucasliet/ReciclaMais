@@ -157,12 +157,13 @@ function listaHTML() {
     //checa se a lista não ta vazia
     if (lista.length != 0) {
         //cria String que vai ser passado pro código html
-        var html = "<h1>Lista de Sugestões</h1>";
+        var html = `<div class="container nossafonte">
+                    <h1>Lista de Sugestões</h1>`;
 
         //constroi botão de deletar várias sugestões
         html += `<button class="btn btn-primary" style="margin:10px;"
                     onclick="removeItens()">
-                        Recusar Sugestões Selecionadas
+                        Recusar Selecionadas
                 </button>`;
 
 
@@ -183,22 +184,22 @@ function listaHTML() {
 
             //checa se cada tipo de lixo foi marcado, se sim escreve ele na String
             if (lista[i].plastico) {
-                html += `<span class='descarte'><img src="images/plastico.png"> Plástico </span>`;
+                html += `<span class='lixoicon'><img src="images/plastico.png"> Plástico </span>`;
             }
             if (lista[i].vidro) {
-                html += `<span class='descarte'><img src="images/vidro.png"> Vidro </span>`;
+                html += `<span class='lixoicon'><img src="images/vidro.png"> Vidro </span>`;
             }
             if (lista[i].metal) {
-                html += `<span class='descarte'><img src="images/metal.png"> Metal </span>`;
+                html += `<span class='lixoicon'><img src="images/metal.png"> Metal </span>`;
             }
             if (lista[i].papel) {
-                html += `<span class='descarte'><img src="images/papel.png"> Papel </span>`;
+                html += `<span class='lixoicon'><img src="images/papel.png"> Papel </span>`;
             }
             if (lista[i].bateria) {
-                html += `<span class='descarte'><img src="images/bateria.png"> Bateria </span>`;
+                html += `<span class='lixoicon'><img src="images/bateria.png"> Bateria </span>`;
             }
             if (lista[i].eletronicos) {
-                html += `<span class='descarte'><img src="images/eletronicos.png"> Eletrônicos </span>`;
+                html += `<span class='lixoicon'><img src="images/eletronicos.png"> Eletrônicos </span>`;
             }
 
             html += `</p>
