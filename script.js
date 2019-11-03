@@ -14,12 +14,12 @@ function populaLista() {
     var lista = new Array;
 
     //checa se o cache ta vazio, caso não esteja puxa o cache pra arraylist
-    if (localStorage.getItem("listaLocais") != null) {
+    if (localStorage.getItem("cacheLocal") != null) {
         /* conserta bug de JSON.parse colocar uma array dentro do primeiro elemento
            de outra array */
         let bug = new Array;
         //converte a String do JSON no localStorage pra array
-        bug.push(JSON.parse(localStorage.getItem("listaLocais")));
+        bug.push(JSON.parse(localStorage.getItem("cacheLocal")));
         /* atribui à lista a array que estava no JSON 
             e foi atribuida ao primeiro elemento da variavel "bug" */
         lista = bug[0];
@@ -68,7 +68,7 @@ function addItem() {
             lista.push(obj);
             
             //manda a arraylist pro cache      //converte a array pra String pro JSON do localStorage
-            localStorage.setItem("listaLocais", JSON.stringify(lista));
+            localStorage.setItem("cacheLocal", JSON.stringify(lista));
             
             //gera Lista no Log do navegador
             console.log(lista);
@@ -81,16 +81,16 @@ function addItem() {
 }
         
 //recebe parametros de posição e nome do local
-function removeItem(index, local) {
+function removeItem(posicao, nomeLocal) {
     var lista = new Array;
     lista = populaLista();
 
-    if (confirm(`Deseja mesmo remover ${local}?`)) {
+    if (confirm(`Deseja mesmo remover ${nomeLocal}?`)) {
         //remove 1 item, a partir da posição fornecida
-        lista.splice(index, 1);
+        lista.splice(posicao, 1);
 
         //manda a arraylist pro cache      //converte a array pra String pro JSON do localStorage
-        localStorage.setItem("listaLocais", JSON.stringify(lista));
+        localStorage.setItem("cacheLocal", JSON.stringify(lista));
 
         //gera Lista no Log do navegador
         console.log(lista);
@@ -128,7 +128,7 @@ function removeItens(){
                 }
 
                 //manda a arraylist pro cache      //converte a array pra String pro JSON do localStorage
-                localStorage.setItem("listaLocais", JSON.stringify(lista));
+                localStorage.setItem("cacheLocal", JSON.stringify(lista));
 
                 //gera Lista no Log do navegador
                 console.log(lista);
@@ -223,11 +223,11 @@ function listaHTML() {
 function mostraLista() {
     document.body.innerHTML = `
     <header>
-    <nav class="menu">
-        <div class="bootstrapnavfix">${menu}</div>
-    </nav>
+        <nav class="menu">
+            <div class="bootstrapnavfix">${menu}</div>
+        </nav>
     </header>
-    <div class="corpo">${listaHTML()}</div>
+    <div>${listaHTML()}</div>
 
     <script type="text/JavaScript" src="script.js"></script>
     <script src="bootstrap/jquery-3.3.1.slim.min.js"></script>
