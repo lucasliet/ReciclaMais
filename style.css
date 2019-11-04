@@ -76,6 +76,11 @@ body {
     height: 64px;
 }
 
+.img-16 img {
+    width: 16px;
+    height: 16px;
+}
+
 .nossafonte {
     color: rgb(91, 102, 117);
     font-size: 21px;
@@ -94,30 +99,4 @@ body {
 .grid3 div img {
     width: 64px;
     height: 64px;
-}
-
-.lista {
-    width: 65%;
-    margin: 10px auto;
-    padding: 20px;
-    text-align: left;
-    background: #eee;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.lixoicon {
-    font-size: 18px;
-    margin-left: 10px; 
-    padding: 2px;
-    background: #E5E9F2;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-}
-.lixoicon img {
-    width: 16px;
-    height: 16px;
-}
-input[id^="check"]{
-    margin-right: 10px;
 }

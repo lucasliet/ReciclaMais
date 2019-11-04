@@ -153,8 +153,8 @@ function listaHTML() {
     //checa se a lista não ta vazia
     if (lista.length != 0) {
         //cria String que vai ser passado pro código html
-        var html = `<div class="container nossafonte">
-                    <h1>Lista de Sugestões</h1>`;
+        var html = `<div class="container">
+                    <h1 class="nossafonte">Lista de Sugestões</h1>`;
 
         //constroi botão de deletar várias sugestões
         html += `<button class="btn btn-primary" style="margin:10px;"
@@ -165,49 +165,81 @@ function listaHTML() {
 
         //passa por cada objeto da array e coloca as variaveis nessa String
         for (var i = 0; i < lista.length; i++) {
-            html += "<div class='lista'>"
-            html += "<div class='form-check-inline'>"
+            html += "<div class='text-left bg-light rounded shadow p-3 m-3 col-13'>"
+            html += "<div class='d-inline'>"
                     //cria caixa de seleção para marcar local a deletar usando a posição para diferenciaro id
             html += `<input type="checkbox" id="check${i}">`
-            html += '<div>'
-            html += "<b>Nome: </b>"             + lista[i].nomePessoa + "<br>";
-            html += "<b>Estabelecimento: </b>"  + lista[i].nomeLocal  + "<br>";
-            html += "<b>Endereço: </b>"         + lista[i].endereco   + "<br>";
-            html += "<b>Número: </b>"           + lista[i].numero   + "<br>";
-            html += "<b>CEP: </b>"              + lista[i].cep   + "<br>";
-            html += `<b>Tipos de Lixo: </b>
-                     <p style="margin-left: 28px;">`;
+            html += '<div class="row">'
+            html += `<label class='col-sm-3'>
+                        <b>Nome: </b> 
+                     </label>
+                     <div class='col-sm-9'> 
+                        <span class='bg-white border p-2'>${lista[i].nomePessoa}</span>
+                    </div>`;
+            html += `<label class='col-sm-3'> 
+                        <b>Estabelecimento: </b> 
+                     </label>
+                     <div class='col-sm-9'>
+                        <span class='bg-white border p-2'>${lista[i].nomeLocal}</span>
+                     </div>`;
+            html += `<label class='col-sm-3'>
+                        <b>Endereço: </b>
+                    </label>
+                    <div class='col-sm-9'>
+                        <span class='bg-white border p-2'>${lista[i].endereco}</span>
+                    </div>`;
+            html += `<label class='col-sm-3'> 
+                        <b>Número: </b>
+                    </label>
+                    <div class='col-sm-9'>
+                        <span class='bg-white border p-2'>${lista[i].numero}</span>
+                    </div>`;
+            html += `<label class='col-sm-3'> 
+                        <b>CEP: </b>
+                    </label>
+                    <div class='col-sm-9'>
+                        <span class='bg-white border p-2'>${lista[i].cep}</span>
+                    </div>`;
+            html += `<label class='col-sm-3'>
+                        <b>Descrição: </b>
+                    </label>
+                    <div class='col-sm-9'>
+                        <div class='bg-white border p-2'>${lista[i].info}</div>
+                    </div>`;
+            html += `<label class='col-sm-3'> 
+                        <b>Tipos de Lixo: </b>
+                    </label>
+                    <div class='col-sm-9 row'>`;
 
             //checa se cada tipo de lixo foi marcado, se sim escreve ele na String
             if (lista[i].plastico) {
-                html += `<span class='lixoicon'><img src="images/plastico.png"> Plástico </span>`;
+                html += `<span class='bg-white p-1 m-2 rounded border img-16'><img src="images/plastico.png"> Plástico </span>`;
             }
             if (lista[i].vidro) {
-                html += `<span class='lixoicon'><img src="images/vidro.png"> Vidro </span>`;
+                html += `<span class='bg-white p-1 m-2 rounded border img-16'><img src="images/vidro.png"> Vidro </span>`;
             }
             if (lista[i].metal) {
-                html += `<span class='lixoicon'><img src="images/metal.png"> Metal </span>`;
+                html += `<span class='bg-white p-1 m-2 rounded border img-16'><img src="images/metal.png"> Metal </span>`;
             }
             if (lista[i].papel) {
-                html += `<span class='lixoicon'><img src="images/papel.png"> Papel </span>`;
+                html += `<span class='bg-white p-1 m-2 rounded border img-16'><img src="images/papel.png"> Papel </span>`;
             }
             if (lista[i].bateria) {
-                html += `<span class='lixoicon'><img src="images/bateria.png"> Bateria </span>`;
+                html += `<span class='bg-white p-1 m-2 rounded border img-16'><img src="images/bateria.png"> Bateria </span>`;
             }
             if (lista[i].eletronicos) {
-                html += `<span class='lixoicon'><img src="images/eletronicos.png"> Eletrônicos </span>`;
+                html += `<span class='bg-white p-1 m-2 rounded border img-16'><img src="images/eletronicos.png"> Eletrônicos </span>`;
             }
-
-            html += `</p>
-                    <b>Descrição: </b>
-                    <p style="margin-left: 30px;">${lista[i].info}</p>`;
-
+            html += "</div>";
+            html += "</div>";
+            html += "</div>";
             //constrói botão de deletar sugestão passando as váriaveis de posição no array e nome do local
-            html += `<button class="btn btn-primary" 
+            html += `<div class="text-right">
+                     <button class="btn btn-primary" 
                         onclick="removeItem(${i},'${lista[i].nomeLocal}')">
                             Recusar Sugestão
-                     </button>`;
-            html += "</div>";
+                     </button>
+                     </div>`;
             html += "</div>";
             html += "</div>";
         }
