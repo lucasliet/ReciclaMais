@@ -157,7 +157,7 @@ function listaHTML() {
                     <div class="nossafonte"><h1>Lista de Sugestões</h1></div>`;
 
         //constroi botão de deletar várias sugestões
-        html += `<button class="btn btn-primary" style="margin:10px;"
+        html += `<button class="btn btn-primary m-2"
                     onclick="removeItens()">
                         Recusar Selecionadas
                 </button>`;
@@ -165,7 +165,7 @@ function listaHTML() {
 
         //passa por cada objeto da array e coloca as variaveis nessa String
         for (var i = 0; i < lista.length; i++) {
-            html += "<div class='text-left bg-light rounded shadow p-3 m-3 col-13'>"
+            html += "<div class='bg-light text-left rounded shadow p-3 m-3'>"
             html += "<div class='d-inline'>"
                     //cria caixa de seleção para marcar local a deletar usando a posição para diferenciaro id
             html += `<input type="checkbox" id="check${i}">`
@@ -174,31 +174,31 @@ function listaHTML() {
                         <b>Nome: </b> 
                      </label>
                      <div class='col-sm-9'> 
-                        <span class='bg-white border p-2'>${lista[i].nomePessoa}</span>
+                        <div class='bg-white border p-2'>${lista[i].nomePessoa}</div>
                     </div>`;
             html += `<label class='col-sm-3'> 
                         <b>Estabelecimento: </b> 
                      </label>
                      <div class='col-sm-9'>
-                        <span class='bg-white border p-2'>${lista[i].nomeLocal}</span>
+                        <div class='bg-white border p-2'>${lista[i].nomeLocal}</div>
                      </div>`;
             html += `<label class='col-sm-3'>
                         <b>Endereço: </b>
                     </label>
                     <div class='col-sm-9'>
-                        <span class='bg-white border p-2'>${lista[i].endereco}</span>
+                        <div class='bg-white border p-2'>${lista[i].endereco}</div>
                     </div>`;
             html += `<label class='col-sm-3'> 
                         <b>Número: </b>
                     </label>
                     <div class='col-sm-9'>
-                        <span class='bg-white border p-2'>${lista[i].numero}</span>
+                        <div class='bg-white border p-2'>${lista[i].numero}</div>
                     </div>`;
             html += `<label class='col-sm-3'> 
                         <b>CEP: </b>
                     </label>
                     <div class='col-sm-9'>
-                        <span class='bg-white border p-2'>${lista[i].cep}</span>
+                        <div class='bg-white border p-2'>${lista[i].cep}</div>
                     </div>`;
             html += `<label class='col-sm-3'>
                         <b>Descrição: </b>
@@ -213,41 +213,54 @@ function listaHTML() {
 
             //checa se cada tipo de lixo foi marcado, se sim escreve ele na String
             if (lista[i].plastico) {
-                html += `<span class='bg-white p-1 m-2 rounded border img-16'><img src="images/plastico.png"> Plástico </span>`;
+                html += `<span class='bg-white p-1 m-1 rounded border img-16'>
+                            <img src="images/plastico.png"> Plástico 
+                         </span>`;
             }
             if (lista[i].vidro) {
-                html += `<span class='bg-white p-1 m-2 rounded border img-16'><img src="images/vidro.png"> Vidro </span>`;
+                html += `<span class='bg-white p-1 m-1 rounded border img-16'>
+                            <img src="images/vidro.png"> Vidro 
+                        </span>`;
             }
             if (lista[i].metal) {
-                html += `<span class='bg-white p-1 m-2 rounded border img-16'><img src="images/metal.png"> Metal </span>`;
+                html += `<span class='bg-white p-1 m-1 rounded border img-16'>
+                            <img src="images/metal.png"> Metal 
+                        </span>`;
             }
             if (lista[i].papel) {
-                html += `<span class='bg-white p-1 m-2 rounded border img-16'><img src="images/papel.png"> Papel </span>`;
+                html += `<span class='bg-white p-1 m-1 rounded border img-16'>
+                            <img src="images/papel.png"> Papel 
+                        </span>`;
             }
             if (lista[i].bateria) {
-                html += `<span class='bg-white p-1 m-2 rounded border img-16'><img src="images/bateria.png"> Bateria </span>`;
+                html += `<span class='bg-white p-1 m-1 rounded border img-16'>
+                            <img src="images/bateria.png"> Bateria 
+                        </span>`;
             }
             if (lista[i].eletronicos) {
-                html += `<span class='bg-white p-1 m-2 rounded border img-16'><img src="images/eletronicos.png"> Eletrônicos </span>`;
+                html += `<span class='bg-white p-1 m-1 rounded border img-16'>
+                            <img src="images/eletronicos.png"> Eletrônicos 
+                        </span>`;
             }
             html += "</div>";
-            html += "</div>";
-            html += "</div>";
+            
+            html += "</div>"; //fecha div row
+            html += "</div>"; //fecha div inline
+
             //constrói botão de deletar sugestão passando as váriaveis de posição no array e nome do local
             html += `<div class="text-right">
-                     <button class="btn btn-primary" 
-                        onclick="removeItem(${i},'${lista[i].nomeLocal}')">
-                            Recusar Sugestão
-                     </button>
+                        <button class="btn btn-primary" 
+                            onclick="removeItem(${i},'${lista[i].nomeLocal}')">
+                                Recusar Sugestão
+                        </button>
                      </div>`;
-            html += "</div>";
-            html += "</div>";
+            html += "</div>"; //fecha div bg
         }
         
         //retorna a String com o código html da lista completa
         return html;
     } else { //se estiver vazia, exibe isso
-        return '<h1 style="margin-top:15%;"> Não há nenhuma sugestão ainda :( </h1>'
+        return '<div class="nossafonte"><h1 style="margin-top:15%;"> Não há nenhuma sugestão ainda :( </h1></div>'
     }
 }
 
@@ -259,7 +272,7 @@ function mostraLista() {
             <div class="bootstrapnavfix">${menu}</div>
         </nav>
     </header>
-    <div>${listaHTML()}</div>
+    ${listaHTML()}
 
     <script type="text/JavaScript" src="script.js"></script>
     <script src="bootstrap/jquery-3.3.1.slim.min.js"></script>
