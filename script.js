@@ -169,47 +169,59 @@ function listaHTML() {
             html += "<div class='d-inline'>"
                     //cria caixa de seleção para marcar local a deletar usando a posição para diferenciaro id
             html += `<input type="checkbox" id="check${i}">`
-            html += '<div class="row">'
-            html += `<label class='col-sm-3'>
-                        <b>Nome: </b> 
-                     </label>
-                     <div class='col-sm-9'> 
-                        <div class='bg-white border p-2'>${lista[i].nomePessoa}</div>
+            html += `<div class="form-group row">
+                        <label class='col-sm-3'>
+                            <b>Nome: </b> 
+                        </label>
+                        <div class='col-sm-9'> 
+                            <div class='form-control'>${lista[i].nomePessoa}</div>
+                        </div>
                     </div>`;
-            html += `<label class='col-sm-3'> 
-                        <b>Estabelecimento: </b> 
-                     </label>
-                     <div class='col-sm-9'>
-                        <div class='bg-white border p-2'>${lista[i].nomeLocal}</div>
+            html += `<div class="form-group row">
+                        <label class='col-sm-3'> 
+                            <b>Estabelecimento: </b> 
+                        </label>
+                        <div class='col-sm-9'>
+                            <div class='form-control'>${lista[i].nomeLocal}</div>
+                        </div>
                      </div>`;
-            html += `<label class='col-sm-3'>
-                        <b>Endereço: </b>
-                    </label>
-                    <div class='col-sm-9'>
-                        <div class='bg-white border p-2'>${lista[i].endereco}</div>
+            html += `<div class="form-group row">
+                        <label class='col-sm-3'>
+                            <b>Endereço: </b>
+                        </label>
+                        <div class='col-sm-9'>
+                            <div class='form-control'>${lista[i].endereco}</div>
+                        </div>
                     </div>`;
-            html += `<label class='col-sm-3'> 
-                        <b>Número: </b>
-                    </label>
-                    <div class='col-sm-9'>
-                        <div class='bg-white border p-2'>${lista[i].numero}</div>
+            html += `<div class="form-group row">
+                        <label class='col-sm-3'>
+                            <b>Número: </b>
+                        </label>
+                        <div class='col-sm-9'>
+                            <div class='form-control'>${lista[i].numero}</div>
+                        </div>
                     </div>`;
-            html += `<label class='col-sm-3'> 
-                        <b>CEP: </b>
-                    </label>
-                    <div class='col-sm-9'>
-                        <div class='bg-white border p-2'>${lista[i].cep}</div>
+            html += `<div class="form-group row">
+                        <label class='col-sm-3'>
+                            <b>CEP: </b>
+                        </label>
+                        <div class='col-sm-9'>
+                            <div class='form-control'>${lista[i].cep}</div>
+                        </div>
                     </div>`;
-            html += `<label class='col-sm-3'>
-                        <b>Descrição: </b>
-                    </label>
-                    <div class='col-sm-9'>
-                        <div class='bg-white border p-2'>${lista[i].info}</div>
+            html += `<div class="form-group row">
+                        <label class='col-sm-3'>
+                            <b>Descrição: </b>
+                        </label>
+                        <div class='col-sm-9'>
+                            <div class='bg-white rounded border p-3'>${lista[i].info}</div>
+                        </div>
                     </div>`;
-            html += `<label class='col-sm-3'> 
-                        <b>Tipos de Lixo: </b>
-                    </label>
-                    <div class='col-sm-9 row'>`;
+            html += `<div class="form-group row">
+                        <label class='col-sm-3'> 
+                            <b>Tipos de Lixo: </b>
+                        </label>
+                        <div class='col-sm-9 row'>`;
 
             //checa se cada tipo de lixo foi marcado, se sim escreve ele na String
             if (lista[i].plastico) {
@@ -242,10 +254,10 @@ function listaHTML() {
                             <img src="images/eletronicos.png"> Eletrônicos 
                         </span>`;
             }
-            html += "</div>";
+            html += "</div>"; //fecha col-sm-9
+            html += "</div>"; //fecha form-group
             
-            html += "</div>"; //fecha div row
-            html += "</div>"; //fecha div inline
+            html += "</div>"; //fecha inline
 
             //constrói botão de deletar sugestão passando as váriaveis de posição no array e nome do local
             html += `<div class="text-right">
@@ -254,7 +266,7 @@ function listaHTML() {
                                 Recusar Sugestão
                         </button>
                      </div>`;
-            html += "</div>"; //fecha div bg
+            html += "</div>"; //fecha bg
         }
         
         //retorna a String com o código html da lista completa
