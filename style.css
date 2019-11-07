@@ -8,8 +8,6 @@ body {
 }
 #fundo {
     background-color: #E5E9F2;
-    margin: 50px;
-    height: 500px;
     border-radius: 18px;
 }
 
@@ -79,7 +77,10 @@ body {
     margin-bottom: 40px;
 }
 
-.iframeborder iframe {border-radius: 18px;}
+.iframeborder iframe {
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+}
 
 .img-64 img {
     width: 64px;
