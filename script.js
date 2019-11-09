@@ -95,52 +95,48 @@ function removeItem(index, local) {
         //gera Lista no Log do navegador
         console.log(lista);
 
-        alert("Local removido com sucesso");
-
         //atualiza a página pra gerar uma nova lista html
         mostraLista();
     } else {
         alert("O local não foi removido");
     }
 }
-//////////////////// AINDA NÃO FUNCIONA ///////////////////
+
+//remove todos os locais que foram selecionados no checkbox
 function removeItens(){
     var lista = new Array;
     lista = populaLista();
-
+    
     //passa por cada item da lista pra ver se algum foi marcado pra deletar
     for (var i = 0; i < lista.length; i++) {
         //checa se alguma caixa de seleção foi selecionada na lista
-        if(document.getElementById(`check${i}`).checked){
+        if (document.getElementById(`check${i}`).checked){
             //Assim que chegar em alguma posição que foi selecionada, executa
-            if(confirm("Tem certeza que deseja deletar todos os locais selecionados?")){
-                //passa por cada item da lista novamente
-                for (var i = 0; i < lista.length; i++) {
-                    var adeletar = new Array;
-                    
-                    //se o item da posição for o mesmo marcado pra deletar, executa
+            if (confirm("Tem certeza que deseja deletar todos os locais selecionados?")){
+                //continua a passar pela lista
+                while (i < lista.length) {
+                    //se o item na posição for o mesmo marcado pra deletar, executa
                     if(document.getElementById(`check${i}`).checked){
-                        //pega quais vão ser as opções que devem ser deletadas e coloca num array
-                        adeletar.push(i);
+                        //deleta 1 item com a posição que ta dentro do adeletar
+                        lista.splice(i, 1);
+
+                        //ja que uma posição foi deletada, volta o while uma posição
+                        i--;
                     }
+                    //passa pra próxima posição
+                    i++;
                 }
-                //passa por toda a lista adeletar
-                for (var i = 0; i < adeletar.length; i++) {
-                    //deleta 1 item com a posição que ta dentro do adeletar
-                    lista.splice(adeletar[i], 1);
-                }
+
                 //manda a arraylist pro cache      //converte a array pra String pro JSON do localStorage
                 localStorage.setItem("listaLocais", JSON.stringify(lista));
 
                 //gera Lista no Log do navegador
                 console.log(lista);
-
-                alert('Locais removidos com sucesso');
                 
-                //atualiza a página pra gerar uma nova lista html
-                mostraLista();
+                       //atualiza a página pra gerar uma nova lista html
+                return mostraLista();
             } else {
-                //return garante que a função vai ser parada invés de continuar o primeiro for em cada item
+                //return finaliza a função
                 return alert('Nenhum local foi removido!');
             }
         }
@@ -157,12 +153,13 @@ function listaHTML() {
     //checa se a lista não ta vazia
     if (lista.length != 0) {
         //cria String que vai ser passado pro código html
-        var html = "<h1>Lista de Sugestões</h1>";
+        var html = `<div class="container nossafonte">
+                    <h1>Lista de Sugestões</h1>`;
 
         //constroi botão de deletar várias sugestões
         html += `<button class="btn btn-primary" style="margin:10px;"
                     onclick="removeItens()">
-                        Recusar Sugestões Selecionadas
+                        Recusar Selecionadas
                 </button>`;
 
 
@@ -183,22 +180,22 @@ function listaHTML() {
 
             //checa se cada tipo de lixo foi marcado, se sim escreve ele na String
             if (lista[i].plastico) {
-                html += `<span class='descarte'><img src="images/plastico.png"> Plástico </span>`;
+                html += `<span class='lixoicon'><img src="images/plastico.png"> Plástico </span>`;
             }
             if (lista[i].vidro) {
-                html += `<span class='descarte'><img src="images/vidro.png"> Vidro </span>`;
+                html += `<span class='lixoicon'><img src="images/vidro.png"> Vidro </span>`;
             }
             if (lista[i].metal) {
-                html += `<span class='descarte'><img src="images/metal.png"> Metal </span>`;
+                html += `<span class='lixoicon'><img src="images/metal.png"> Metal </span>`;
             }
             if (lista[i].papel) {
-                html += `<span class='descarte'><img src="images/papel.png"> Papel </span>`;
+                html += `<span class='lixoicon'><img src="images/papel.png"> Papel </span>`;
             }
             if (lista[i].bateria) {
-                html += `<span class='descarte'><img src="images/bateria.png"> Bateria </span>`;
+                html += `<span class='lixoicon'><img src="images/bateria.png"> Bateria </span>`;
             }
             if (lista[i].eletronicos) {
-                html += `<span class='descarte'><img src="images/eletronicos.png"> Eletrônicos </span>`;
+                html += `<span class='lixoicon'><img src="images/eletronicos.png"> Eletrônicos </span>`;
             }
 
             html += `</p>
