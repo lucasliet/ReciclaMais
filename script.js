@@ -174,7 +174,7 @@ function listaHTML() {
                             <b>Nome: </b> 
                         </label>
                         <div class='col-sm-9'> 
-                            <div class='form-control'>${lista[i].nomePessoa}</div>
+                            <div class='bg-white rounded border p-3'>${lista[i].nomePessoa}</div>
                         </div>
                     </div>`;
             html += `<div class="form-group row">
@@ -182,7 +182,7 @@ function listaHTML() {
                             <b>Estabelecimento: </b> 
                         </label>
                         <div class='col-sm-9'>
-                            <div class='form-control'>${lista[i].nomeLocal}</div>
+                            <div class='bg-white rounded border p-3'>${lista[i].nomeLocal}</div>
                         </div>
                      </div>`;
             html += `<div class="form-group row">
@@ -190,7 +190,7 @@ function listaHTML() {
                             <b>Endereço: </b>
                         </label>
                         <div class='col-sm-9'>
-                            <div class='form-control'>${lista[i].endereco}</div>
+                            <div class='bg-white rounded border p-3'>${lista[i].endereco}</div>
                         </div>
                     </div>`;
             html += `<div class="form-group row">
@@ -198,7 +198,7 @@ function listaHTML() {
                             <b>Número: </b>
                         </label>
                         <div class='col-sm-9'>
-                            <div class='form-control'>${lista[i].numero}</div>
+                            <div class='bg-white rounded border p-3'>${lista[i].numero}</div>
                         </div>
                     </div>`;
             html += `<div class="form-group row">
@@ -206,7 +206,7 @@ function listaHTML() {
                             <b>CEP: </b>
                         </label>
                         <div class='col-sm-9'>
-                            <div class='form-control'>${lista[i].cep}</div>
+                            <div class='bg-white rounded border p-3'>${lista[i].cep}</div>
                         </div>
                     </div>`;
             html += `<div class="form-group row">
