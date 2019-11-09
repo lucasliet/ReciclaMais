@@ -14,12 +14,12 @@ function populaLista() {
     var lista = new Array;
 
     //checa se o cache ta vazio, caso não esteja puxa o cache pra arraylist
-    if (localStorage.getItem("listaLocais") != null) {
+    if (localStorage.getItem("cacheLocal") != null) {
         /* conserta bug de JSON.parse colocar uma array dentro do primeiro elemento
            de outra array */
         let bug = new Array;
         //converte a String do JSON no localStorage pra array
-        bug.push(JSON.parse(localStorage.getItem("listaLocais")));
+        bug.push(JSON.parse(localStorage.getItem("cacheLocal")));
         /* atribui à lista a array que estava no JSON 
             e foi atribuida ao primeiro elemento da variavel "bug" */
         lista = bug[0];
@@ -68,7 +68,7 @@ function addItem() {
             lista.push(obj);
             
             //manda a arraylist pro cache      //converte a array pra String pro JSON do localStorage
-            localStorage.setItem("listaLocais", JSON.stringify(lista));
+            localStorage.setItem("cacheLocal", JSON.stringify(lista));
             
             //gera Lista no Log do navegador
             console.log(lista);
@@ -81,16 +81,16 @@ function addItem() {
 }
         
 //recebe parametros de posição e nome do local
-function removeItem(index, local) {
+function removeItem(posicao, nomeLocal) {
     var lista = new Array;
     lista = populaLista();
 
-    if (confirm(`Deseja mesmo remover ${local}?`)) {
+    if (confirm(`Deseja mesmo remover ${nomeLocal}?`)) {
         //remove 1 item, a partir da posição fornecida
-        lista.splice(index, 1);
+        lista.splice(posicao, 1);
 
         //manda a arraylist pro cache      //converte a array pra String pro JSON do localStorage
-        localStorage.setItem("listaLocais", JSON.stringify(lista));
+        localStorage.setItem("cacheLocal", JSON.stringify(lista));
 
         //gera Lista no Log do navegador
         console.log(lista);
@@ -128,7 +128,7 @@ function removeItens(){
                 }
 
                 //manda a arraylist pro cache      //converte a array pra String pro JSON do localStorage
-                localStorage.setItem("listaLocais", JSON.stringify(lista));
+                localStorage.setItem("cacheLocal", JSON.stringify(lista));
 
                 //gera Lista no Log do navegador
                 console.log(lista);
@@ -153,11 +153,11 @@ function listaHTML() {
     //checa se a lista não ta vazia
     if (lista.length != 0) {
         //cria String que vai ser passado pro código html
-        var html = `<div class="container nossafonte">
-                    <h1>Lista de Sugestões</h1>`;
+        var html = `<div class="container">
+                    <div class="nossafonte"><h1>Lista de Sugestões</h1></div>`;
 
         //constroi botão de deletar várias sugestões
-        html += `<button class="btn btn-primary" style="margin:10px;"
+        html += `<button class="btn btn-primary m-2"
                     onclick="removeItens()">
                         Recusar Selecionadas
                 </button>`;
@@ -165,57 +165,114 @@ function listaHTML() {
 
         //passa por cada objeto da array e coloca as variaveis nessa String
         for (var i = 0; i < lista.length; i++) {
-            html += "<div class='lista'>"
-            html += "<div class='form-check-inline'>"
+            html += "<div class='bg-light text-left rounded shadow p-3 m-3'>"
+            html += "<div class='d-inline'>"
                     //cria caixa de seleção para marcar local a deletar usando a posição para diferenciaro id
             html += `<input type="checkbox" id="check${i}">`
-            html += '<div>'
-            html += "<b>Nome: </b>"             + lista[i].nomePessoa + "<br>";
-            html += "<b>Estabelecimento: </b>"  + lista[i].nomeLocal  + "<br>";
-            html += "<b>Endereço: </b>"         + lista[i].endereco   + "<br>";
-            html += "<b>Número: </b>"           + lista[i].numero   + "<br>";
-            html += "<b>CEP: </b>"              + lista[i].cep   + "<br>";
-            html += `<b>Tipos de Lixo: </b>
-                     <p style="margin-left: 28px;">`;
+            html += `<div class="form-group row">
+                        <label class='col-sm-3'>
+                            <b>Nome: </b> 
+                        </label>
+                        <div class='col-sm-9'> 
+                            <div class='bg-white rounded border p-3'>${lista[i].nomePessoa}</div>
+                        </div>
+                    </div>`;
+            html += `<div class="form-group row">
+                        <label class='col-sm-3'> 
+                            <b>Estabelecimento: </b> 
+                        </label>
+                        <div class='col-sm-9'>
+                            <div class='bg-white rounded border p-3'>${lista[i].nomeLocal}</div>
+                        </div>
+                     </div>`;
+            html += `<div class="form-group row">
+                        <label class='col-sm-3'>
+                            <b>Endereço: </b>
+                        </label>
+                        <div class='col-sm-9'>
+                            <div class='bg-white rounded border p-3'>${lista[i].endereco}</div>
+                        </div>
+                    </div>`;
+            html += `<div class="form-group row">
+                        <label class='col-sm-3'>
+                            <b>Número: </b>
+                        </label>
+                        <div class='col-sm-9'>
+                            <div class='bg-white rounded border p-3'>${lista[i].numero}</div>
+                        </div>
+                    </div>`;
+            html += `<div class="form-group row">
+                        <label class='col-sm-3'>
+                            <b>CEP: </b>
+                        </label>
+                        <div class='col-sm-9'>
+                            <div class='bg-white rounded border p-3'>${lista[i].cep}</div>
+                        </div>
+                    </div>`;
+            html += `<div class="form-group row">
+                        <label class='col-sm-3'>
+                            <b>Descrição: </b>
+                        </label>
+                        <div class='col-sm-9'>
+                            <div class='bg-white rounded border p-3'>${lista[i].info}</div>
+                        </div>
+                    </div>`;
+            html += `<div class="form-group row">
+                        <label class='col-sm-3'> 
+                            <b>Tipos de Lixo: </b>
+                        </label>
+                        <div class='col-sm-9 row'>`;
 
             //checa se cada tipo de lixo foi marcado, se sim escreve ele na String
             if (lista[i].plastico) {
-                html += `<span class='lixoicon'><img src="images/plastico.png"> Plástico </span>`;
+                html += `<span class='bg-white p-1 m-1 rounded border img-16'>
+                            <img src="images/plastico.png"> Plástico 
+                         </span>`;
             }
             if (lista[i].vidro) {
-                html += `<span class='lixoicon'><img src="images/vidro.png"> Vidro </span>`;
+                html += `<span class='bg-white p-1 m-1 rounded border img-16'>
+                            <img src="images/vidro.png"> Vidro 
+                        </span>`;
             }
             if (lista[i].metal) {
-                html += `<span class='lixoicon'><img src="images/metal.png"> Metal </span>`;
+                html += `<span class='bg-white p-1 m-1 rounded border img-16'>
+                            <img src="images/metal.png"> Metal 
+                        </span>`;
             }
             if (lista[i].papel) {
-                html += `<span class='lixoicon'><img src="images/papel.png"> Papel </span>`;
+                html += `<span class='bg-white p-1 m-1 rounded border img-16'>
+                            <img src="images/papel.png"> Papel 
+                        </span>`;
             }
             if (lista[i].bateria) {
-                html += `<span class='lixoicon'><img src="images/bateria.png"> Bateria </span>`;
+                html += `<span class='bg-white p-1 m-1 rounded border img-16'>
+                            <img src="images/bateria.png"> Bateria 
+                        </span>`;
             }
             if (lista[i].eletronicos) {
-                html += `<span class='lixoicon'><img src="images/eletronicos.png"> Eletrônicos </span>`;
+                html += `<span class='bg-white p-1 m-1 rounded border img-16'>
+                            <img src="images/eletronicos.png"> Eletrônicos 
+                        </span>`;
             }
-
-            html += `</p>
-                    <b>Descrição: </b>
-                    <p style="margin-left: 30px;">${lista[i].info}</p>`;
+            html += "</div>"; //fecha col-sm-9
+            html += "</div>"; //fecha form-group
+            
+            html += "</div>"; //fecha inline
 
             //constrói botão de deletar sugestão passando as váriaveis de posição no array e nome do local
-            html += `<button class="btn btn-primary" 
-                        onclick="removeItem(${i},'${lista[i].nomeLocal}')">
-                            Recusar Sugestão
-                     </button>`;
-            html += "</div>";
-            html += "</div>";
-            html += "</div>";
+            html += `<div class="text-right">
+                        <button class="btn btn-primary" 
+                            onclick="removeItem(${i},'${lista[i].nomeLocal}')">
+                                Recusar Sugestão
+                        </button>
+                     </div>`;
+            html += "</div>"; //fecha bg
         }
         
         //retorna a String com o código html da lista completa
         return html;
     } else { //se estiver vazia, exibe isso
-        return '<h1 style="margin-top:15%;"> Não há nenhuma sugestão ainda :( </h1>'
+        return '<div class="nossafonte"><h1 style="margin-top:15%;"> Não há nenhuma sugestão ainda :( </h1></div>'
     }
 }
 
@@ -223,11 +280,11 @@ function listaHTML() {
 function mostraLista() {
     document.body.innerHTML = `
     <header>
-    <nav class="menu">
-        <div class="bootstrapnavfix">${menu}</div>
-    </nav>
+        <nav class="menu">
+            <div class="bootstrapnavfix">${menu}</div>
+        </nav>
     </header>
-    <div class="corpo">${listaHTML()}</div>
+    ${listaHTML()}
 
     <script type="text/JavaScript" src="script.js"></script>
     <script src="bootstrap/jquery-3.3.1.slim.min.js"></script>
