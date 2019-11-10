@@ -1,6 +1,6 @@
 //escreve o código da navbar no html
 var menu = `
-    <nav class="navbar navbar-light menu navbar-expand-lg p-0 my-3 mx-2">
+    <nav class="navbar navbar-light menu navbar-expand-lg p-0 my-3 mx-2 shadow">
     <a class="ml-3 navbar-brand" href="index.html"><button class="logo">R+</button></a>
     <button class="mr-3 navbar-toggler border-0" type="button" data-toggle="collapse"
         data-target="#hamburguinho" aria-controls="hamburguinho" aria-expanded="false"
@@ -306,8 +306,8 @@ function mostraLista() {
     ${listaHTML()}
 
     <script type="text/JavaScript" src="script.js"></script>
-    <script src="bootstrap/jquery-3.3.1.slim.min.js"></script>
-    <script src="bootstrap/popper.min.js"></script>
-    <script src="bootstrap/bootstrap.min.js"></script>
+    <script src="vendor/bootstrap/jquery-3.3.1.slim.min.js"></script>
+    <script src="vendor/bootstrap/popper.min.js"></script>
+    <script src="vendor/bootstrap/bootstrap.min.js"></script>
     `
 }
