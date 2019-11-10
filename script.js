@@ -1,13 +1,32 @@
 //escreve o código da navbar no html
 var menu = `
-            <ul>
-            <a href="index.html"><button class="logo">R+</button></a>
-            <li><a href="index.html">Página Inicial</a></li>
-            <li><a href="info.html">Como Separar</a></li>
-            <li><a href="aboutus.html">Sobre Nós</a></li>
-            <li><a href="suggestion.html">Sugestões</a></li>
-            </ul>
-            `    
+    <nav class="navbar navbar-light menu navbar-expand-lg p-0 my-3 mx-2">
+    <a class="ml-3 navbar-brand" href="index.html"><button class="logo">R+</button></a>
+    <button class="mr-3 navbar-toggler border-0" type="button" data-toggle="collapse"
+        data-target="#hamburguinho" aria-controls="hamburguinho" aria-expanded="false"
+        aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="hamburguinho">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html"">Página Inicial<span class=" sr-only">(página
+                    atual)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="info.html">Como Separar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="aboutus.html">Sobre Nós</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="suggestion.html">Sugestões</a>
+            </li>
+        </ul>
+    </div>
+    </nav>
+    `    
 document.getElementById('navbar').innerHTML = menu;
 
 function populaLista() {
@@ -174,7 +193,7 @@ function listaHTML() {
                             <b>Nome: </b> 
                         </label>
                         <div class='col-sm-9'> 
-                            <div class='form-control'>${lista[i].nomePessoa}</div>
+                            <div class='bg-white rounded border p-3'>${lista[i].nomePessoa}</div>
                         </div>
                     </div>`;
             html += `<div class="form-group row">
@@ -182,7 +201,7 @@ function listaHTML() {
                             <b>Estabelecimento: </b> 
                         </label>
                         <div class='col-sm-9'>
-                            <div class='form-control'>${lista[i].nomeLocal}</div>
+                            <div class='bg-white rounded border p-3'>${lista[i].nomeLocal}</div>
                         </div>
                      </div>`;
             html += `<div class="form-group row">
@@ -190,7 +209,7 @@ function listaHTML() {
                             <b>Endereço: </b>
                         </label>
                         <div class='col-sm-9'>
-                            <div class='form-control'>${lista[i].endereco}</div>
+                            <div class='bg-white rounded border p-3'>${lista[i].endereco}</div>
                         </div>
                     </div>`;
             html += `<div class="form-group row">
@@ -198,7 +217,7 @@ function listaHTML() {
                             <b>Número: </b>
                         </label>
                         <div class='col-sm-9'>
-                            <div class='form-control'>${lista[i].numero}</div>
+                            <div class='bg-white rounded border p-3'>${lista[i].numero}</div>
                         </div>
                     </div>`;
             html += `<div class="form-group row">
@@ -206,7 +225,7 @@ function listaHTML() {
                             <b>CEP: </b>
                         </label>
                         <div class='col-sm-9'>
-                            <div class='form-control'>${lista[i].cep}</div>
+                            <div class='bg-white rounded border p-3'>${lista[i].cep}</div>
                         </div>
                     </div>`;
             html += `<div class="form-group row">
