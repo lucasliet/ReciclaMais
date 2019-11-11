@@ -55,12 +55,13 @@ function addItem() {
         document.getElementById("inputNumero").value    &&
         document.getElementById("inputCEP").value){
         //checa se o usuário marcou ao menos um tipo de descarte
-        if(document.getElementById("plastico").checked ||
-           document.getElementById("vidro").checked    ||
-           document.getElementById("metal").checked    ||
-           document.getElementById("papel").checked    ||
-           document.getElementById("bateria").checked  ||
-           document.getElementById("eletronicos").checked){
+        if(document.getElementById("plastico").checked    ||
+           document.getElementById("vidro").checked       ||
+           document.getElementById("metal").checked       ||
+           document.getElementById("papel").checked       ||
+           document.getElementById("bateria").checked     ||
+           document.getElementById("eletronicos").checked ||
+           document.getElementById("outros").checked){
 
             var lista = new Array;
             lista = populaLista();
@@ -81,6 +82,17 @@ function addItem() {
                 papel           : document.getElementById("papel").checked,
                 bateria         : document.getElementById("bateria").checked,
                 eletronicos     : document.getElementById("eletronicos").checked,
+            }
+
+            //checa se foi marcado a checkbox do "outros"
+            if(document.getElementById("outros").checked){
+                //checa se foi escrito algo no textbox
+                if(document.getElementById("inputOutros").value){
+                    obj.outros = document.getElementById("inputOutros").value;
+                } else {
+                    //caso tenha sido marcado o checkbox mas não foi escrito nada, exibe e para a função
+                    return alert("Nos diga que outro tipo de descarte encontrou :)")
+                }
             }
         
             //manda o objeto pra arraylist
@@ -271,6 +283,11 @@ function listaHTML() {
             if (lista[i].eletronicos) {
                 html += `<span class='bg-white p-1 m-1 rounded border img-16'>
                             <img src="images/eletronicos.png"> Eletrônicos 
+                        </span>`;
+            }
+            if (lista[i].outros) {
+                html += `<span class='bg-white p-1 m-1 rounded border img-16'>
+                            <img src="images/eletronicos.png"> Outros: ${lista[i].outros} 
                         </span>`;
             }
             html += "</div>"; //fecha col-sm-9
