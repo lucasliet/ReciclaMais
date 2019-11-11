@@ -43,13 +43,7 @@ body {
     transition: background-color 0.5s;
 }
 
-.map {
-    position: absolute; 
-    top: 100px; 
-    left: 0; 
-    right: 0; 
-    bottom: 0; 
-}
+.map {height: 87vh;}
 
 .iframeborder iframe {border-radius: 18px;}
 
