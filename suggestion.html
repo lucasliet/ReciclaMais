@@ -22,55 +22,35 @@
                 <div class="form-group row">
                     <label for="inputNome" class="col-sm-2 col-form-label">Nome:</label>
                     <div class="col-sm-10">
-                        <input type="text" 
-                            class="form-control" 
-                            id="inputNome" 
-                            placeholder="Ex: João da Silva" 
-                            required>
+                        <input type="text" class="form-control" id="inputNome" placeholder="Ex: João da Silva" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputLugar" class=" col-sm-2 col-form-label">Estabelecimento:</label>
                     <div class="col-sm-10">
-                        <input type="text" 
-                            class="form-control" 
-                            id="inputLugar" 
-                            placeholder="Ex: Boteco do Noriega" 
+                        <input type="text" class="form-control" id="inputLugar" placeholder="Ex: Boteco do Noriega"
                             required>
                     </div>
                 </div>
                 <div class="row">
                     <label for="inputEndereco" class=" col-sm-2 col-form-label">Endereço:</label>
                     <div class="form-group col-sm-6">
-                        <input type="text" 
-                            class="form-control" 
-                            id="inputEndereco" 
-                            placeholder="Ex: Rua dos bobos" 
+                        <input type="text" class="form-control" id="inputEndereco" placeholder="Ex: Rua dos bobos"
                             required>
                     </div>
                     <div class="form-group col">
-                        <input type="text" 
-                            class="form-control" 
-                            id="inputNumero" 
-                            placeholder="Número" 
-                            required>
+                        <input type="text" class="form-control" id="inputNumero" placeholder="Número" required>
                     </div>
                     <div class="form-group col">
-                        <input type="text" 
-                            class="form-control" 
-                            id="inputCEP" 
-                            placeholder="CEP" 
-                            required>
+                        <input type="text" class="form-control" id="inputCEP" placeholder="CEP" required>
                     </div>
 
                 </div>
                 <div class="form-group row">
                     <label for="comentario" class="col-sm-2 col-form-label">Descrição:</label>
                     <div class="col-sm-10">
-                        <textarea type="text" 
-                                class="form-control" 
-                                id="comentario"
-                                placeholder="Comentários adicionais"></textarea>
+                        <textarea type="text" class="form-control" id="comentario"
+                            placeholder="Comentários adicionais"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -100,9 +80,9 @@
                             </div>
                             <div class="col-md-4 col-6">
                                 <div class="form-check-inline mt-4">
-                                        <input class="form-check-input" type="checkbox" id="vidro">
-                                        <img src="images/vidro.png" class="ml-2">
-                                        <label class="form-check-label ml-2" for="Vidro">Vidro</label>
+                                    <input class="form-check-input" type="checkbox" id="vidro">
+                                    <img src="images/vidro.png" class="ml-2">
+                                    <label class="form-check-label ml-2" for="Vidro">Vidro</label>
                                 </div>
                             </div>
                             <div class="col-md-4 col-6">
@@ -119,7 +99,7 @@
                                     <label class="form-check-label ml-2" for="Eletrônicos">Eletrônicos</label>
                                 </div>
                             </div>
-                            <hr/>
+                            <hr />
                             <div class="col-12">
                                 <div class="form-check-inline">
                                     <input class="form-check-input" type="checkbox" id="outros">
@@ -133,10 +113,28 @@
                 </div>
             </div>
             <div class="text-right">
-                <span class="mx-auto">
-                    <button type="submit" class="btn btn-primary" onclick="addItem()">Enviar</button>
-                    <button type="reset" class="btn btn-primary ml-2">Limpar</button>
-                </span>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal"
+                    onclick="addItem()">Enviar</button>
+                <button type="reset" class="btn btn-primary ml-2">Limpar</button>
+            </div>
+
+            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="Resultado"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header" id="modalFechar">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-left" id="resultado">
+                            Preencha os campos antes de enviar
+                        </div>
+                        <div class="modal-footer" id="modalOK">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
     </section>
