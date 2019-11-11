@@ -7,7 +7,16 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+    <!-- 
+    <style>
+        .popover-body {
+            background: #E5E9F2;
+        }
+    </style> 
+    -->
+
 </head>
 
 <body>
@@ -19,23 +28,30 @@
                 <div class="col-md-6">
                     <div class="card fundo shadow">
                         <div class="card-header">Tipos de lixo</div>
-                        <span class="img-64 grid3">
-                            <div><img src="images/plastico.png">
+                        <span class="card-body img-64 grid3">
+                            <div><img src="images/plastico.png" id="infoPlasticos" data-toggle="popover"
+                                    data-content="90% do lixo produzido no mundo são à base de plástico. Por isso, esse material merece uma atenção especial. Recicle sacos de supermercados, garrafas de refrigerante (pet), tampinhas e até brinquedos quebrados.">
                                 <p>Plástico</p>
                             </div>
-                            <div><img src="images/papel.png">
+                            <div>
+                                <img src="images/papel.png" id="infoPapel" data-toggle="popover"
+                                    data-content="Todos os tipos são recicláveis, inclusive caixas do tipo longa-vida e de papelão. Não recicle papel com material orgânico, como caixas de pizza cheias de gordura, pontas de cigarro, fitas adesivas, fotografias, papéis sanitários e papel-carbono.">
                                 <p>Papel</p>
                             </div>
-                            <div><img src="images/bateria.png">
+                            <div><img src="images/bateria.png" id="infoBaterias" data-toggle="popover"
+                                    data-content="Baterias e pilhas são  materiais que  não devem ser misturados aos resíduos levados para os aterros sanitários porque liberam componentes tóxicos que podem contaminar o solo e a água, é necessário, antes de tudo, armazenar as pilhas e/ou baterias sem misturá-las com outros tipos de materiais, apenas embalá-las em plástico resistente para evitar contato com umidade a fim de evitar vazamentos.">
                                 <p>Bateria</p>
                             </div>
-                            <div><img src="images/vidro.png">
+                            <div><img src="images/vidro.png" id="infoVidros" data-toggle="popover"
+                                    data-content="Quando limpos e secos, todos são recicláveis, exceto lâmpadas, cristais, espelhos, vidros de automóveis ou temperados, cerâmica e porcelana.">
                                 <p>Vidro</p>
                             </div>
-                            <div><img src="images/metal.png">
+                            <div><img src="images/metal.png" id="infoMetais" data-toggle="popover"
+                                    data-content="Além de todos os tipos de latas de alumínio, é possível reciclar tampinhas, pregos e parafusos. Atenção: clipes, grampos, canos e esponjas de aço devem ficar de fora.">
                                 <p>Metal</p>
                             </div>
-                            <div><img src="images/eletronicos.png">
+                            <div><img src="images/eletronicos.png" id="infoEletronicos" data-toggle="popover"
+                                    data-content="Descartar lixo eletrônico não reciclável exige controle e monitoramento da destinação desses materiais. O lixo eletrônico é uma atividade que engloba a gestão adequada dos resíduos sólidos eletroeletrônicos. O descarte do lixo eletrônico de maneira adequada significa que todo o material inutilizado será rejeitado sem comprometer o meio ambiente e a saúde humana.">
                                 <p>Eletrônicos</p>
                             </div>
                         </span>
@@ -45,17 +61,28 @@
                     <div class="card iframeborder fundo shadow">
                         <div class="card-header">Como Separar</div>
                         <iframe width=100% height="300" src="https://www.youtube.com/embed/IfJ1z6ahgzk" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
-        </div>
-        </section>
+    </section>
     <script type="text/JavaScript" src="script.js"></script>
     <script src="vendor/bootstrap/jquery-3.3.1.slim.min.js"></script>
     <script src="vendor/bootstrap/popper.min.js"></script>
     <script src="vendor/bootstrap/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#infoPapel").popover({ trigger: "hover" });
+            $("#infoPlasticos").popover({ trigger: "hover" });
+            $("#infoMetais").popover({ trigger: "hover" });
+            $("#infoVidros").popover({ trigger: "hover" });
+            $("#infoEletronicos").popover({ trigger: "hover" });
+            $("#infoBaterias").popover({ trigger: "hover" });
+
+        });
+    </script>
 </body>
 
 </html>
