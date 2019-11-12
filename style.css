@@ -11,6 +11,15 @@ body {
     border-radius: 12px;
 }
 
+hr {
+    margin: 2rem;
+    height: 1px;
+    width:100%;
+    display:block;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+
 .nossafonte {
     color: rgb(91, 102, 117);
     font-size: 21px;
@@ -42,7 +51,10 @@ body {
     line-height: normal;
 }
 
-.menu ul li a {padding: 20px !important;}
+.menu ul li a {
+    padding: 20px !important;
+    color: #333 !important;
+}
 
 .menu ul li a:hover {
     background-color: #2C8B56;

@@ -1,33 +1,51 @@
 //escreve o código da navbar no html
 var menu = `
     <nav class="navbar navbar-light menu navbar-expand-lg p-0 my-3 mx-2 shadow">
-    <a class="ml-3 navbar-brand" href="index.html"><button class="logo">R+</button></a>
-    <button class="mr-3 navbar-toggler border-0" type="button" data-toggle="collapse"
-        data-target="#hamburguinho" aria-controls="hamburguinho" aria-expanded="false"
-        aria-label="Alterna navegação">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+        <a class="ml-3 navbar-brand" href="index.html"><button class="logo">R+</button></a>
+        <button class="mr-3 navbar-toggler border-0" type="button" data-toggle="collapse"
+            data-target="#hamburguinho" aria-controls="hamburguinho" aria-expanded="false"
+            aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="hamburguinho">
-        <ul class="navbar-nav mx-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html"">Página Inicial<span class=" sr-only">(página
-                    atual)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="info.html">Como Separar</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="aboutus.html">Sobre Nós</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="suggestion.html">Sugestões</a>
-            </li>
-        </ul>
-    </div>
+        <div class="collapse navbar-collapse" id="hamburguinho">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html"">Página Inicial<span class=" sr-only">(página
+                        atual)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="info.html">Como Separar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutus.html">Sobre Nós</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="suggestion.html">Sugestões</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     `    
 document.getElementById('navbar').innerHTML = menu;
+
+function submitOK(){
+    document.getElementById('modalFechar').innerHTML = `
+        <button type="submit" class="close" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    `
+    document.getElementById('modalOK').innerHTML = '<button type="submit" class="btn btn-primary">OK</button>'
+}
+
+function fechaOK(){
+    document.getElementById('modalFechar').innerHTML = `
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    `
+    document.getElementById('modalOK').innerHTML = '<button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>'
+}
 
 function populaLista() {
     var lista = new Array;
@@ -55,12 +73,13 @@ function addItem() {
         document.getElementById("inputNumero").value    &&
         document.getElementById("inputCEP").value){
         //checa se o usuário marcou ao menos um tipo de descarte
-        if(document.getElementById("plastico").checked ||
-           document.getElementById("vidro").checked    ||
-           document.getElementById("metal").checked    ||
-           document.getElementById("papel").checked    ||
-           document.getElementById("bateria").checked  ||
-           document.getElementById("eletronicos").checked){
+        if(document.getElementById("plastico").checked    ||
+           document.getElementById("vidro").checked       ||
+           document.getElementById("metal").checked       ||
+           document.getElementById("papel").checked       ||
+           document.getElementById("bateria").checked     ||
+           document.getElementById("eletronicos").checked ||
+           document.getElementById("outros").checked){
 
             var lista = new Array;
             lista = populaLista();
@@ -82,6 +101,19 @@ function addItem() {
                 bateria         : document.getElementById("bateria").checked,
                 eletronicos     : document.getElementById("eletronicos").checked,
             }
+
+            //checa se foi marcado a checkbox do "outros"
+            if(document.getElementById("outros").checked){
+                //checa se foi escrito algo no textbox
+                if(document.getElementById("inputOutros").value){
+                    obj.outros = document.getElementById("inputOutros").value;
+                } else {
+                    //caso tenha sido marcado o checkbox mas não foi escrito nada, exibe e para a função
+                    fechaOK();
+                    document.getElementById('resultado').innerHTML = "Nos diga que outro tipo de descarte encontrou :)";
+                    return
+                }
+            }
         
             //manda o objeto pra arraylist
             lista.push(obj);
@@ -92,9 +124,11 @@ function addItem() {
             //gera Lista no Log do navegador
             console.log(lista);
             
-            alert("Local armazenado com sucesso!");
+            document.getElementById('resultado').innerHTML = "Local armazenado com Sucesso";
+            submitOK();
         } else {
-            alert("Selecione ao menos um tipo de descarte");
+            document.getElementById('resultado').innerHTML = "Selecione ao menos um tipo de descarte";
+            fechaOK();
         }
     }
 }
@@ -122,47 +156,47 @@ function removeItem(posicao, nomeLocal) {
 }
 
 //remove todos os locais que foram selecionados no checkbox
-function removeItens(){
-    var lista = new Array;
-    lista = populaLista();
+// function removeItens(){
+//     var lista = new Array;
+//     lista = populaLista();
     
-    //passa por cada item da lista pra ver se algum foi marcado pra deletar
-    for (var i = 0; i < lista.length; i++) {
-        //checa se alguma caixa de seleção foi selecionada na lista
-        if (document.getElementById(`check${i}`).checked){
-            //Assim que chegar em alguma posição que foi selecionada, executa
-            if (confirm("Tem certeza que deseja deletar todos os locais selecionados?")){
-                //continua a passar pela lista
-                while (i < lista.length) {
-                    //se o item na posição for o mesmo marcado pra deletar, executa
-                    if(document.getElementById(`check${i}`).checked){
-                        //deleta 1 item com a posição que ta dentro do adeletar
-                        lista.splice(i, 1);
+//     //passa por cada item da lista pra ver se algum foi marcado pra deletar
+//     for (var i = 0; i < lista.length; i++) {
+//         //checa se alguma caixa de seleção foi selecionada na lista
+//         if (document.getElementById(`check${i}`).checked){
+//             //Assim que chegar em alguma posição que foi selecionada, executa
+//             if (confirm("Tem certeza que deseja deletar todos os locais selecionados?")){
+//                 //continua a passar pela lista
+//                 while (i < lista.length) {
+//                     //se o item na posição for o mesmo marcado pra deletar, executa
+//                     if(document.getElementById(`check${i}`).checked){
+//                         //deleta 1 item com a posição que ta dentro do adeletar
+//                         lista.splice(i, 1);
 
-                        //ja que uma posição foi deletada, volta o while uma posição
-                        i--;
-                    }
-                    //passa pra próxima posição
-                    i++;
-                }
+//                         //ja que uma posição foi deletada, volta o while uma posição
+//                         i--;
+//                     }
+//                     //passa pra próxima posição
+//                     i++;
+//                 }
 
-                //manda a arraylist pro cache      //converte a array pra String pro JSON do localStorage
-                localStorage.setItem("cacheLocal", JSON.stringify(lista));
+//                 //manda a arraylist pro cache      //converte a array pra String pro JSON do localStorage
+//                 localStorage.setItem("cacheLocal", JSON.stringify(lista));
 
-                //gera Lista no Log do navegador
-                console.log(lista);
+//                 //gera Lista no Log do navegador
+//                 console.log(lista);
                 
-                       //atualiza a página pra gerar uma nova lista html
-                return mostraLista();
-            } else {
-                //return finaliza a função
-                return alert('Nenhum local foi removido!');
-            }
-        }
-    }
-    //caso o for percorra toda a lista e nenhum item dela foi selecionado, exibe
-    alert('Algum local deve ser marcado para ser deletado');
-}
+//                        //atualiza a página pra gerar uma nova lista html
+//                 return mostraLista();
+//             } else {
+//                 //return finaliza a função
+//                 return alert('Nenhum local foi removido!');
+//             }
+//         }
+//     }
+//     //caso o for percorra toda a lista e nenhum item dela foi selecionado, exibe
+//     alert('Algum local deve ser marcado para ser deletado');
+// }
 
 //gera o código html que vai ser usado para a lista
 function listaHTML() {
@@ -173,13 +207,13 @@ function listaHTML() {
     if (lista.length != 0) {
         //cria String que vai ser passado pro código html
         var html = `<div class="container">
-                    <div class="nossafonte"><h1>Lista de Sugestões</h1></div>`;
+                    <div class="nossafonte"><h2>Lista de Sugestões</h2></div>`;
 
         //constroi botão de deletar várias sugestões
-        html += `<button class="btn btn-primary m-2"
-                    onclick="removeItens()">
-                        Recusar Selecionadas
-                </button>`;
+        // html += `<button class="btn btn-primary m-2"
+        //             onclick="removeItens()">
+        //                 Recusar Selecionadas
+        //         </button>`;
 
 
         //passa por cada objeto da array e coloca as variaveis nessa String
@@ -187,7 +221,7 @@ function listaHTML() {
             html += "<div class='bg-light text-left rounded shadow p-3 m-3'>"
             html += "<div class='d-inline'>"
                     //cria caixa de seleção para marcar local a deletar usando a posição para diferenciaro id
-            html += `<input type="checkbox" id="check${i}">`
+            //html += `<input type="checkbox" id="check${i}">`
             html += `<div class="form-group row">
                         <label class='col-sm-3'>
                             <b>Nome: </b> 
@@ -273,6 +307,11 @@ function listaHTML() {
                             <img src="images/eletronicos.png"> Eletrônicos 
                         </span>`;
             }
+            if (lista[i].outros) {
+                html += `<span class='bg-white p-1 m-1 rounded border img-16'>
+                            <img src="images/eletronicos.png"> Outros: ${lista[i].outros} 
+                        </span>`;
+            }
             html += "</div>"; //fecha col-sm-9
             html += "</div>"; //fecha form-group
             
@@ -298,11 +337,8 @@ function listaHTML() {
 //sobrepõe o body da página com a lista de sugestões
 function mostraLista() {
     document.body.innerHTML = `
-    <header>
-        <nav class="menu">
-            <div class="bootstrapnavfix">${menu}</div>
-        </nav>
-    </header>
+    <header>${menu}</header>
+
     ${listaHTML()}
 
     <script type="text/JavaScript" src="script.js"></script>
