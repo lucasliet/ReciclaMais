@@ -1,30 +1,30 @@
 //escreve o código da navbar no html
 var menu = `
     <nav class="navbar navbar-light menu navbar-expand-lg p-0 my-3 mx-2">
-    <a class="ml-3 navbar-brand" href="index.html"><button class="logo">R+</button></a>
-    <button class="mr-3 navbar-toggler border-0" type="button" data-toggle="collapse"
-        data-target="#hamburguinho" aria-controls="hamburguinho" aria-expanded="false"
-        aria-label="Alterna navegação">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+        <a class="ml-3 navbar-brand" href="index.html"><button class="logo">R+</button></a>
+        <button class="mr-3 navbar-toggler border-0" type="button" data-toggle="collapse"
+            data-target="#hamburguinho" aria-controls="hamburguinho" aria-expanded="false"
+            aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="hamburguinho">
-        <ul class="navbar-nav mx-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html"">Página Inicial<span class=" sr-only">(página
-                    atual)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="info.html">Como Separar</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="aboutus.html">Sobre Nós</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="suggestion.html">Sugestões</a>
-            </li>
-        </ul>
-    </div>
+        <div class="collapse navbar-collapse" id="hamburguinho">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html"">Página Inicial<span class=" sr-only">(página
+                        atual)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="info.html">Como Separar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutus.html">Sobre Nós</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="suggestion.html">Sugestões</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     `    
 document.getElementById('navbar').innerHTML = menu;
