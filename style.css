@@ -44,7 +44,10 @@ hr {
     line-height: normal;
 }
 
-.menu ul li a {padding: 20px !important;}
+.menu ul li a {
+    padding: 20px !important;
+    color: #333 !important;
+}
 
 .menu ul li a:hover {
     background-color: #2C8B56;
