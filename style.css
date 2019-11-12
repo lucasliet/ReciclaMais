@@ -8,7 +8,7 @@ body {
 
 .fundo {
     background-color: #E5E9F2;
-    border-radius: 18px;
+    border-radius: 12px;
 }
 
 .nossafonte {
@@ -53,8 +53,8 @@ body {
 .map {height: 87vh;}
 
 .iframeborder iframe, .card form {
-    border-bottom-right-radius: 18px;
-    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
 }
 
 .img-64 img {
