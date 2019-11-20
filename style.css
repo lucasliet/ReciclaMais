@@ -29,6 +29,17 @@ hr {
 
 .logo {
     margin: 5px;
+    cursor: pointer;
+}
+
+.logo:hover{
+    transition: 0.3s;
+    filter: brightness(1.2);
+    transform: scale(1.1);
+}
+
+/*.logo {
+    margin: 5px;
     padding: 8px;
     background-color:#fff;
     border: none;
@@ -44,6 +55,7 @@ hr {
     color: #efe;
     transition: background-color 0.5s;
 }
+*/
 
 .menu {
     background-color: #49D888;
