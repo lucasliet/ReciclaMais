@@ -1,7 +1,14 @@
 body {
-    background: #E5E9F2;
+    background-image: url(images/background.jpg);
+    background-color: #E5E9F2;
+    background-size: 100%;
     text-align: center;
-    font-family: Lato, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.fundo {
+    background-color: #E5E9F2;
+    border-radius: 12px;
 }
 
 hr {
@@ -22,6 +29,17 @@ hr {
 
 .logo {
     margin: 5px;
+    cursor: pointer;
+}
+
+.logo:hover{
+    transition: 0.3s;
+    filter: brightness(1.2);
+    transform: scale(1.1);
+}
+
+/*.logo {
+    margin: 5px;
     padding: 8px;
     background-color:#fff;
     border: none;
@@ -37,6 +55,7 @@ hr {
     color: #efe;
     transition: background-color 0.5s;
 }
+*/
 
 .menu {
     background-color: #49D888;
@@ -57,7 +76,10 @@ hr {
 
 .map {height: 87vh;}
 
-.iframeborder iframe {border-radius: 18px;}
+.iframeborder iframe, .card form {
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
 
 .img-64 img {
     width: 64px;
