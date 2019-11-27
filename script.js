@@ -322,7 +322,7 @@ function listaHTML() {
 
             //constrói botão de deletar sugestão passando as váriaveis de posição no array e nome do local
             html += `<div class="text-right">
-                        <button class="btn btn-primary" 
+                        <button class="btn btn-primary" style="cursor: pointer;" 
                             onclick="removeItem(${i},'${lista[i].nomeLocal}')">
                                 Recusar Sugestão
                         </button>
