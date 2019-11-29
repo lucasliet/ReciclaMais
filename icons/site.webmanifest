@@ -1,6 +1,6 @@
 {
-    "name": "Recicla +",
-    "short_name": "Recicla +",
+    "name": "Recicla+",
+    "short_name": "Recicla+",
     "scope": "./",
     "icons": [
         {
@@ -14,7 +14,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#697999",
+    "theme_color": "#49d888",
     "background_color": "#697999",
     "start_url": "https://lucasliet.github.io/ReciclaMais/",
     "display": "standalone",
