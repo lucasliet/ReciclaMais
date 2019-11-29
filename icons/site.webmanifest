@@ -1,0 +1,22 @@
+{
+    "name": "Recicla +",
+    "short_name": "Recicla +",
+    "scope": "./",
+    "icons": [
+        {
+            "src": "android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#697999",
+    "background_color": "#697999",
+    "start_url": "https://lucasliet.github.io/ReciclaMais/",
+    "display": "standalone",
+    "orientation": "portrait"
+}
