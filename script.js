@@ -2,7 +2,7 @@
 var menu = `
     <nav class="navbar navbar-light menu navbar-expand-lg p-0 my-3 mx-2 shadow">
         <a class="ml-3 navbar-brand text-white" href="index.html">
-            <img class="logo" src="images/fav.ico" width=40 height=40/>
+            <img class="logo" src="icons/favicon.ico" width=40 height=40/>
                 Recicla +
         </a>
         <button class="mr-3 navbar-toggler border-0" type="button" data-toggle="collapse"
