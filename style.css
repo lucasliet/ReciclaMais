@@ -76,7 +76,7 @@ hr {
 
 .map {height: 87vh;}
 
-.iframeborder iframe, .card form {
+.iframeborder iframe,.iframeborder video, .card form {
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
 }
