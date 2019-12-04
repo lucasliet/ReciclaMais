@@ -51,8 +51,8 @@
                         <div class="row">
                             <label for="inputEndereco" class=" col-sm-2 col-form-label">Endereço:</label>
                             <div class="form-group col-sm-6">
-                                <input type="text" class="form-control" id="inputEndereco" placeholder="Ex: Rua dos bobos"
-                                    required>
+                                <input type="text" class="form-control" id="inputEndereco"
+                                    placeholder="Ex: Rua dos bobos" required>
                             </div>
                             <div class="form-group col">
                                 <input type="text" class="form-control" id="inputNumero" placeholder="Número" required>
@@ -60,7 +60,7 @@
                             <div class="form-group col">
                                 <input type="text" class="form-control" id="inputCEP" placeholder="CEP" required>
                             </div>
-        
+
                         </div>
                         <div class="form-group row">
                             <label for="comentario" class="col-sm-2 col-form-label">Descrição:</label>
@@ -73,56 +73,98 @@
                         <div class="form-group row">
                             <label for="descarte" class="col-sm-2 col-form-label">Descarte disponível:</label>
                             <div class="col-sm-10">
-                                <div class="form-group row img-64">
+                                <div class="form-group row img-64 text-center text-sm-left">
                                     <div class="col-md-4 col-6">
                                         <div class="form-check-inline mt-4">
                                             <input class="form-check-input" type="checkbox" id="plastico">
-                                            <img src="images/plastico.png" class="ml-2">
-                                            <label class="form-check-label ml-2" for="Plastico">Plástico</label>
+                                            <div class="row">
+                                                <div class="col-12 col-md-3 mx-3">
+                                                    <img src="images/plastico.png" />
+                                                </div>
+                                                <div class="col-12 col-md-3 my-auto mx-3">
+                                                    <label class="form-check-label" for="plastico">Plástico</label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-6">
                                         <div class="form-check-inline mt-4">
                                             <input class="form-check-input" type="checkbox" id="papel">
-                                            <img src="images/papel.png" class="ml-2">
-                                            <label class="form-check-label ml-2" for="Papel">Papel</label>
+                                            <div class="row">
+                                                <div class="col-12 col-md-3 mx-3">
+                                                    <img src="images/papel.png" />
+                                                </div>
+                                                <div class="col-12 col-md-3 my-auto mx-3">
+                                                    <label class="form-check-label" for="papel">Papel</label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-6">
                                         <div class="form-check-inline mt-4">
                                             <input class="form-check-input" type="checkbox" id="metal">
-                                            <img src="images/metal.png" class="ml-2">
-                                            <label class="form-check-label ml-2" for="Metal">Metal</label>
+                                            <div class="row">
+                                                <div class="col-12 col-md-3 mx-3">
+                                                    <img src="images/metal.png" />
+                                                </div>
+                                                <div class="col-12 col-md-3 my-auto mx-3">
+                                                    <label class="form-check-label" for="metal">Metal</label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-6">
                                         <div class="form-check-inline mt-4">
                                             <input class="form-check-input" type="checkbox" id="vidro">
-                                            <img src="images/vidro.png" class="ml-2">
-                                            <label class="form-check-label ml-2" for="Vidro">Vidro</label>
+                                            <div class="row">
+                                                <div class="col-12 col-md-3 mx-3">
+                                                    <img src="images/vidro.png" />
+                                                </div>
+                                                <div class="col-12 col-md-3 my-auto mx-3">
+                                                    <label class="form-check-label" for="vidro">Vidro</label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-6">
                                         <div class="form-check-inline mt-4">
                                             <input class="form-check-input" type="checkbox" id="eletronicos">
-                                            <img src="images/eletronicos.png" class="ml-2">
-                                            <label class="form-check-label ml-2" for="Eletrônicos">Eletrônicos</label>
+                                            <div class="row">
+                                                <div class="col-12 col-md-3 mx-3">
+                                                    <img src="images/eletronicos.png" />
+                                                </div>
+                                                <div class="col-12 col-md-3 my-auto mx-3">
+                                                    <label class="form-check-label"
+                                                        for="eletronicos">Eletrônicos</label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-6">
                                         <div class="form-check-inline mt-4">
                                             <input class="form-check-input" type="checkbox" id="bateria">
-                                            <img src="images/bateria.png" class="ml-2">
-                                            <label class="form-check-label ml-2" for="Bateria">Bateria</label>
+                                            <div class="row">
+                                                <div class="col-12 col-md-3 mx-3">
+                                                    <img src="images/bateria.png" />
+                                                </div>
+                                                <div class="col-12 col-md-3 my-auto mx-3">
+                                                    <label class="form-check-label" for="bateria">Bateria</label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <hr />
                                     <div class="col-12">
-                                        <div class="form-group form-check-inline">
+                                        <div class="form-group form-check-inline text-left">
                                             <input class="form-check-input" type="checkbox" id="outros">
-                                            <img src="images/Recycle-others.png" class="ml-2">
-                                            <label class="form-check-label ml-2" for="outros">Outros:</label>
-                                            <input class="ml-2 form-control col-6 col-md-8" type="text" id="inputOutros" placeholder="Ex: Óleo vegetal">
+                                            <img src="images/Recycle-others.png" class="mx-2">
+                                            <div class="form-group row my-auto ml-1">
+                                                <label class="col-sm-12 col-md-3 col-form-label" for="outros">Outros:</label>
+                                                <div class="col-sm-6 col-md-9">
+                                                    <input class="form-control" type="text"
+                                                        id="inputOutros" placeholder="Ex: Óleo vegetal">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
